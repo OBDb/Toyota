@@ -11,6 +11,11 @@ permissions:
   pages: write
   id-token: write
 
+# Make prefixes for this repo
+env:
+  FILTER_PREFIX: Toyota-
+  SIGNAL_PREFIX: TOYOTA
+
 concurrency:
   group: "data-update"
   cancel-in-progress: false
@@ -67,7 +72,7 @@ jobs:
           path: .meta
 
       - name: Run data extraction script
-        run: python .meta/repo-tools/extract_signalsets.py --fetch --workspace workspace --output build --filter-prefix=Toyota- --signal-prefix=TOYOTA
+        run: python .meta/repo-tools/extract_signalsets.py --fetch --workspace workspace --output build --filter-prefix=${{ env.FILTER_PREFIX }} --signal-prefix=${{ env.SIGNAL_PREFIX }}
         id: extract_data
 
       - name: Checkout schemas repo
@@ -79,6 +84,7 @@ jobs:
       - name: Format signalsets
         id: format_signalsets
         run: |
+          mkdir -p signalsets/v3
           cp build/merged_signalset.json signalsets/v3/default.json
           find signalsets/v3 -type f -exec python3 .schemas/cli.py '{}' --output '{}' \;
 
@@ -93,13 +99,13 @@ jobs:
       - name: Check for changes in data
         id: check_changes
         run: |
-          # Check if there are changes to commit
-          if git diff --quiet signalsets/v3/default.json; then
-            echo "No changes detected in signalsets/v3/default.json"
-            echo "changed=false" >> $GITHUB_OUTPUT
-          else
+          # Check if the file has changes or is untracked
+          if git status --porcelain signalsets/v3/default.json | grep -q .; then
             echo "Changes detected in signalsets/v3/default.json"
             echo "changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "No changes detected in signalsets/v3/default.json"
+            echo "changed=false" >> $GITHUB_OUTPUT
           fi
 
       - name: Configure Git
