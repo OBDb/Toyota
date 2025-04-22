@@ -80,7 +80,7 @@ jobs:
         id: format_signalsets
         run: |
           cp build/merged_signalset.json signalsets/v3/default.json
-          find signalsets/v3 -type f -exec python3 tests/schemas/cli.py '{}' --output '{}' \;
+          find signalsets/v3 -type f -exec python3 .schemas/cli.py '{}' --output '{}' \;
 
       - name: Validate signalsets
         id: json-yaml-validate-v3
