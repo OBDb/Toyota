@@ -1,2 +1,6 @@
 tests/schemas/
 __pycache__
+build/
+.meta/
+workspace/
+

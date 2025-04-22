@@ -1,0 +1,122 @@
+# .github/workflows/daily-update.yml
+name: Daily Data Update
+
+on:
+  schedule:
+    - cron: '0 5,11,17,23 * * *'
+  workflow_dispatch:  # Allows manual triggering
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "data-update"
+  cancel-in-progress: false
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install jsonschema
+
+      - name: Install GitHub CLI
+        run: |
+          type -p curl >/dev/null || apt install curl -y
+          curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+          && sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
+          && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+          && sudo apt update \
+          && sudo apt install gh -y
+
+      - name: Authenticate with GitHub CLI
+        run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" | gh auth login --with-token
+
+      - name: Create data directory
+        run: |
+          mkdir -p public/data
+
+      # Cache the workspace directory containing cloned repositories
+      - name: Cache workspace repositories
+        id: cache-workspace
+        uses: actions/cache@v3
+        with:
+          path: workspace
+          # The cache key depends on the day of month to refresh cache periodically
+          # This ensures a fresh clone every month while using cache for daily updates
+          key: ${{ runner.os }}-workspace-${{ github.run_id }}-${{ github.run_number }}
+          restore-keys: |
+            ${{ runner.os }}-workspace-
+
+      - name: Create workspace directory if it doesn't exist
+        if: steps.cache-workspace.outputs.cache-hit != 'true'
+        run: mkdir -p workspace
+
+      - name: Checkout schemas repo
+        uses: actions/checkout@v4
+        with:
+          repository: OBDb/.meta
+          path: .meta
+
+      - name: Run data extraction script
+        run: |
+          python .meta/repo-tools/extract_signalsets.py --fetch --workspace workspace --output build --filter-prefix=Toyota- --signal-prefix=TOYOTA
+        id: extract_data
+
+      - name: Checkout schemas repo
+        uses: actions/checkout@v4
+        with:
+          repository: OBDb/.schemas
+          path: .schemas
+
+      - name: Check for changes in data
+        id: format_signalsets
+        run: |
+          cp build/merged_signalsets.json signalsets/v3/default.json
+          find signalsets/v3 -type f -exec python3 tests/schemas/cli.py '{}' --output '{}' \\;
+
+      - name: Validate signalsets
+        id: json-yaml-validate-v3
+        uses: GrantBirki/json-yaml-validate@v2.7.1
+        with:
+          comment: "true"
+          base_dir: signalsets/v3/
+          json_schema: .schemas/signals.json
+
+      - name: Check for changes in data
+        id: check_changes
+        run: |
+          # Check if there are changes to commit
+          if git diff --quiet signalsets/v3/default.json; then
+            echo "No changes detected in signalsets/v3/default.json"
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "Changes detected in signalsets/v3/default.json"
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Configure Git
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+      - name: Commit and push changes
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          git add signalsets/v3/default.json
+          git commit -m "Update signalsets from OBDb repositories [skip ci]"
+          git push
+          echo "commit_sha=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
