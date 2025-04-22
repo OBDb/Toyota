@@ -44,10 +44,6 @@ jobs:
         run: |
           echo "${{ secrets.GITHUB_TOKEN }}" | gh auth login --with-token
 
-      - name: Create data directory
-        run: |
-          mkdir -p public/data
-
       # Cache the workspace directory containing cloned repositories
       - name: Cache workspace repositories
         id: cache-workspace
@@ -64,15 +60,14 @@ jobs:
         if: steps.cache-workspace.outputs.cache-hit != 'true'
         run: mkdir -p workspace
 
-      - name: Checkout schemas repo
+      - name: Checkout meta repo
         uses: actions/checkout@v4
         with:
           repository: OBDb/.meta
           path: .meta
 
       - name: Run data extraction script
-        run: |
-          python .meta/repo-tools/extract_signalsets.py --fetch --workspace workspace --output build --filter-prefix=Toyota- --signal-prefix=TOYOTA
+        run: python .meta/repo-tools/extract_signalsets.py --fetch --workspace workspace --output build --filter-prefix=Toyota- --signal-prefix=TOYOTA
         id: extract_data
 
       - name: Checkout schemas repo
@@ -81,10 +76,10 @@ jobs:
           repository: OBDb/.schemas
           path: .schemas
 
-      - name: Check for changes in data
+      - name: Format signalsets
         id: format_signalsets
         run: |
-          cp build/merged_signalsets.json signalsets/v3/default.json
+          cp build/merged_signalset.json signalsets/v3/default.json
           find signalsets/v3 -type f -exec python3 tests/schemas/cli.py '{}' --output '{}' \\;
 
       - name: Validate signalsets
