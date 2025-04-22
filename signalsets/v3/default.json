@@ -1,15 +1,16 @@
 { "commands": [
-{ "hdr": "700", "dbg": true, "cmd": {"22": "1059"}, "freq": 0.25,
+{ "hdr": "700", "dbg": true, "cmd": {"22": "1F2F"}, "freq": 30,
   "signals": [
+    {"id": "TOYOTA_FLI",           "path": "Fuel",    "fmt": { "len": 8,  "max": 100,              "mul": 100, "div": 255,              "unit": "percent"    }, "name": "Fuel level",                     "suggestedMetric": "fuelTankLevel"},
     {"id": "TOYOTA_ACCEL_PEDAL",   "path": "Control", "fmt": { "len": 8,  "max": 100,                          "div": 1.42, "add": -41, "unit": "percent"    }, "name": "Accelerator Pedal"},
     {"id": "TOYOTA_ENG_OIL_PRESS", "path": "Engine",  "fmt": { "len": 16, "max": 1000,             "mul": 10,  "div": 128,              "unit": "kilopascal" }, "name": "Engine Oil Pressure"},
-    {"id": "TOYOTA_ATF_TEMP",      "path": "Engine",  "fmt": { "len": 8,  "max": 215,  "min": -40,                          "add": -40, "unit": "celsius"    }, "name": "Transmission Fluid Temperature"},
-    {"id": "TOYOTA_FLI",           "path": "Fuel",    "fmt": { "len": 8,  "max": 100,              "mul": 100, "div": 255,              "unit": "percent"    }, "name": "Fuel level",                     "suggestedMetric": "fuelTankLevel"}
+    {"id": "TOYOTA_ATF_TEMP",      "path": "Engine",  "fmt": { "len": 8,  "max": 215,  "min": -40,                          "add": -40, "unit": "celsius"    }, "name": "Transmission Fluid Temperature"}
   ]},
 { "hdr": "701", "rax": "709", "dbg": true, "cmd": {"22": "1627"}, "freq": 1,
   "signals": [
-    {"id": "TOYOTA_TF1_PAN",  "path": "Engine", "fmt": { "len": 16, "max": 350, "min": -40, "mul": 0.00703125, "add": -40, "unit": "fahrenheit" }, "name": "Transmission Fluid Pan Temperature"},
-    {"id": "TOYOTA_TF2_CONV", "path": "Engine", "fmt": { "len": 16, "max": 350, "min": -40, "mul": 0.00703125, "add": -40, "unit": "fahrenheit" }, "name": "Transmission Fluid Post-Converter Temperature"}
+    {"id": "TOYOTA_TF1_PAN",  "path": "Engine", "fmt": {          "len": 16, "max": 350,      "min": -40, "mul": 0.00703125, "add": -40, "unit": "fahrenheit" }, "name": "Transmission Fluid Pan Temperature"},
+    {"id": "TOYOTA_TF2_CONV", "path": "Engine", "fmt": {          "len": 16, "max": 350,      "min": -40, "mul": 0.00703125, "add": -40, "unit": "fahrenheit" }, "name": "Transmission Fluid Post-Converter Temperature"},
+    {"id": "TOYOTA_ODO",      "path": "Trips",  "fmt": {"bix": 8, "len": 24, "max": 16777215,                                            "unit": "kilometers" }, "name": "Odometer",                                      "suggestedMetric": "odometer"}
   ]},
 { "hdr": "745", "rax": "74D", "fcm1": true, "dbg": true, "cmd": {"22": "1739"}, "freq": 1,
   "signals": [
@@ -23,27 +24,42 @@
   ]},
 { "hdr": "750", "eax": "2A", "tst": "2A", "tmo": "96", "fcm1": true, "dbg": true, "cmd": {"21": "16"}, "freq": 5,
   "signals": [
-    {"id": "TOYOTA_TT_FL",    "path": "Tires", "fmt": {           "len": 8, "max": 215, "min": -40,            "add": -40,  "unit": "celsius" }, "name": "Front left tire temperature"},
-    {"id": "TOYOTA_TP_FL",    "path": "Tires", "fmt": {           "len": 8, "max": 4,               "div": 58, "add": -0.5, "unit": "bars"    }, "name": "Front left tire pressure",     "suggestedMetric": "frontLeftTirePressure"},
-    {"id": "TOYOTA_TT_FR",    "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 215, "min": -40,            "add": -40,  "unit": "celsius" }, "name": "Front right tire temperature"},
-    {"id": "TOYOTA_TP_FR",    "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 4,               "div": 58, "add": -0.5, "unit": "bars"    }, "name": "Front right tire pressure",    "suggestedMetric": "frontRightTirePressure"},
-    {"id": "TOYOTA_TT_RL",    "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 215, "min": -40,            "add": -40,  "unit": "celsius" }, "name": "Rear left tire temperature"},
-    {"id": "TOYOTA_TP_RL",    "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 4,               "div": 58, "add": -0.5, "unit": "bars"    }, "name": "Rear left tire pressure",      "suggestedMetric": "rearLeftTirePressure"},
-    {"id": "TOYOTA_TT_RR",    "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 215, "min": -40,            "add": -40,  "unit": "celsius" }, "name": "Rear right tire temperature"},
-    {"id": "TOYOTA_TP_RR",    "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 4,               "div": 58, "add": -0.5, "unit": "bars"    }, "name": "Rear right tire pressure",     "suggestedMetric": "rearRightTirePressure"},
-    {"id": "TOYOTA_TT_SPARE", "path": "Tires", "fmt": {"bix": 32, "len": 8, "max": 215, "min": -40,            "add": -40,  "unit": "celsius" }, "name": "Spare tire temperature"},
-    {"id": "TOYOTA_TP_SPARE", "path": "Tires", "fmt": {"bix": 32, "len": 8, "max": 4,               "div": 58, "add": -0.5, "unit": "bars"    }, "name": "Spare tire pressure"}
+    {"id": "TOYOTA_TT_FL",      "path": "Tires", "fmt": {           "len": 8, "max": 215, "min": -40,            "add": -40,  "unit": "celsius" }, "name": "Front left tire temperature"},
+    {"id": "TOYOTA_TP_FL",      "path": "Tires", "fmt": {           "len": 8, "max": 4,               "div": 58, "add": -0.5, "unit": "bars"    }, "name": "Front left tire pressure",     "suggestedMetric": "frontLeftTirePressure"},
+    {"id": "TOYOTA_TP_2_FL",    "path": "Tires", "fmt": {           "len": 8, "max": 4,               "div": 58, "add": -0.5, "unit": "unknown" }, "name": "Front left tire pressure",     "suggestedMetric": "frontLeftTirePressure"},
+    {"id": "TOYOTA_TT_FR",      "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 215, "min": -40,            "add": -40,  "unit": "celsius" }, "name": "Front right tire temperature"},
+    {"id": "TOYOTA_TP_FR",      "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 4,               "div": 58, "add": -0.5, "unit": "bars"    }, "name": "Front right tire pressure",    "suggestedMetric": "frontRightTirePressure"},
+    {"id": "TOYOTA_TP_2_FR",    "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 4,               "div": 58, "add": -0.5, "unit": "unknown" }, "name": "Front left tire pressure",     "suggestedMetric": "frontRightTirePressure"},
+    {"id": "TOYOTA_TT_RL",      "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 215, "min": -40,            "add": -40,  "unit": "celsius" }, "name": "Rear left tire temperature"},
+    {"id": "TOYOTA_TP_RL",      "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 4,               "div": 58, "add": -0.5, "unit": "bars"    }, "name": "Rear left tire pressure",      "suggestedMetric": "rearLeftTirePressure"},
+    {"id": "TOYOTA_TP_2_RL",    "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 4,               "div": 58, "add": -0.5, "unit": "unknown" }, "name": "Front left tire pressure",     "suggestedMetric": "rearLeftTirePressure"},
+    {"id": "TOYOTA_TT_RR",      "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 215, "min": -40,            "add": -40,  "unit": "celsius" }, "name": "Rear right tire temperature"},
+    {"id": "TOYOTA_TP_RR",      "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 4,               "div": 58, "add": -0.5, "unit": "bars"    }, "name": "Rear right tire pressure",     "suggestedMetric": "rearRightTirePressure"},
+    {"id": "TOYOTA_TP_2_RR",    "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 4,               "div": 58, "add": -0.5, "unit": "unknown" }, "name": "Front left tire pressure",     "suggestedMetric": "rearRightTirePressure"},
+    {"id": "TOYOTA_TT_SPARE",   "path": "Tires", "fmt": {"bix": 32, "len": 8, "max": 215, "min": -40,            "add": -40,  "unit": "celsius" }, "name": "Spare tire temperature"},
+    {"id": "TOYOTA_TP_SPARE",   "path": "Tires", "fmt": {"bix": 32, "len": 8, "max": 4,               "div": 58, "add": -0.5, "unit": "bars"    }, "name": "Spare tire pressure"},
+    {"id": "TOYOTA_TP_2_SPARE", "path": "Tires", "fmt": {"bix": 32, "len": 8, "max": 4,               "div": 58, "add": -0.5, "unit": "unknown" }, "name": "Front left tire pressure"}
   ]},
-{ "hdr": "750", "rax": "758", "eax": "2A", "tst": "2A", "fcm1": true, "dbg": true, "cmd": {"22": "1004"}, "freq": 5,
+{ "hdr": "750", "rax": "758", "eax": "2A", "tst": "2A", "fcm1": true, "dbg": true, "cmd": {"22": "2021"}, "freq": 86400,
   "signals": [
-    {"id": "TOYOTA_TT_1", "path": "Tires", "fmt": {           "len": 8, "max": 100,  "min": -30,               "add": -40,        "nullmin": -30, "unit": "celsius" }, "name": "Front right tire temperature"},
-    {"id": "TOYOTA_TT_2", "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 100,  "min": -30,               "add": -40,        "nullmin": -30, "unit": "celsius" }, "name": "Front left tire temperature"},
-    {"id": "TOYOTA_TP_1", "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 56.8,             "div": 4.125, "add": -5.6969697, "nullmin": 0,   "unit": "psi"     }, "name": "Rear left tire pressure",      "suggestedMetric": "rearLeftTirePressure"},
-    {"id": "TOYOTA_TT_3", "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 100,  "min": -30,               "add": -40,        "nullmin": -30, "unit": "celsius" }, "name": "Rear right tire temperature"},
-    {"id": "TOYOTA_TT_4", "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 100,  "min": -30,               "add": -40,        "nullmin": -30, "unit": "celsius" }, "name": "Rear left tire temperature"},
-    {"id": "TOYOTA_TP_2", "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 56.8,             "div": 4.125, "add": -5.6969697, "nullmin": 0,   "unit": "psi"     }, "name": "Front left tire pressure",     "suggestedMetric": "frontLeftTirePressure"},
-    {"id": "TOYOTA_TP_3", "path": "Tires", "fmt": {"bix": 40, "len": 8, "max": 56.8,             "div": 4.125, "add": -5.6969697, "nullmin": 0,   "unit": "psi"     }, "name": "Rear right tire pressure",     "suggestedMetric": "rearRightTirePressure"},
-    {"id": "TOYOTA_TP_4", "path": "Tires", "fmt": {"bix": 56, "len": 8, "max": 56.8,             "div": 4.125, "add": -5.6969697, "nullmin": 0,   "unit": "psi"     }, "name": "Front right tire pressure",    "suggestedMetric": "frontRightTirePressure"},
+    {"id": "TOYOTA_TT_1",     "path": "Tires", "fmt": {           "len": 8, "max": 100,  "min": -30,               "add": -40,        "nullmin": -30, "unit": "celsius" }, "name": "Front right tire temperature"},
+    {"id": "TOYOTA_TT_FL",    "path": "Tires", "fmt": {           "len": 8, "max": 215,  "min": -40,               "add": -40,                        "unit": "celsius" }, "name": "Front left tire temperature"},
+    {"id": "TOYOTA_TP_FL",    "path": "Tires", "fmt": {           "len": 8, "max": 4,                "div": 58,    "add": -0.5,                       "unit": "bars"    }, "name": "Front left tire pressure",     "suggestedMetric": "frontLeftTirePressure"},
+    {"id": "TOYOTA_TT_2",     "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 100,  "min": -30,               "add": -40,        "nullmin": -30, "unit": "celsius" }, "name": "Front left tire temperature"},
+    {"id": "TOYOTA_TP_1",     "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 56.8,             "div": 4.125, "add": -5.6969697, "nullmin": 0,   "unit": "psi"     }, "name": "Front right tire pressure",    "suggestedMetric": "frontRightTirePressure"},
+    {"id": "TOYOTA_TT_FR",    "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 215,  "min": -40,               "add": -40,                        "unit": "celsius" }, "name": "Front right tire temperature"},
+    {"id": "TOYOTA_TP_FR",    "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 4,                "div": 58,    "add": -0.5,                       "unit": "bars"    }, "name": "Front right tire pressure",    "suggestedMetric": "frontRightTirePressure"},
+    {"id": "TOYOTA_TT_3",     "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 100,  "min": -30,               "add": -40,        "nullmin": -30, "unit": "celsius" }, "name": "Rear right tire temperature"},
+    {"id": "TOYOTA_TT_RL",    "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 215,  "min": -40,               "add": -40,                        "unit": "celsius" }, "name": "Rear left tire temperature"},
+    {"id": "TOYOTA_TP_RL",    "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 4,                "div": 58,    "add": -0.5,                       "unit": "bars"    }, "name": "Rear left tire pressure",      "suggestedMetric": "rearLeftTirePressure"},
+    {"id": "TOYOTA_TT_4",     "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 100,  "min": -30,               "add": -40,        "nullmin": -30, "unit": "celsius" }, "name": "Rear left tire temperature"},
+    {"id": "TOYOTA_TP_2",     "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 56.8,             "div": 4.125, "add": -5.6969697, "nullmin": 0,   "unit": "psi"     }, "name": "Front left tire pressure",     "suggestedMetric": "frontLeftTirePressure"},
+    {"id": "TOYOTA_TT_RR",    "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 215,  "min": -40,               "add": -40,                        "unit": "celsius" }, "name": "Rear right tire temperature"},
+    {"id": "TOYOTA_TP_RR",    "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 4,                "div": 58,    "add": -0.5,                       "unit": "bars"    }, "name": "Rear right tire pressure",     "suggestedMetric": "rearRightTirePressure"},
+    {"id": "TOYOTA_TT_SPARE", "path": "Tires", "fmt": {"bix": 32, "len": 8, "max": 215,  "min": -40,               "add": -40,                        "unit": "celsius" }, "name": "Spare tire temperature"},
+    {"id": "TOYOTA_TP_SPARE", "path": "Tires", "fmt": {"bix": 32, "len": 8, "max": 4,                "div": 58,    "add": -0.5,                       "unit": "bars"    }, "name": "Spare tire pressure"},
+    {"id": "TOYOTA_TP_3",     "path": "Tires", "fmt": {"bix": 40, "len": 8, "max": 56.8,             "div": 4.125, "add": -5.6969697, "nullmin": 0,   "unit": "psi"     }, "name": "Rear right tire pressure",     "suggestedMetric": "rearRightTirePressure"},
+    {"id": "TOYOTA_TP_4",     "path": "Tires", "fmt": {"bix": 56, "len": 8, "max": 56.8,             "div": 4.125, "add": -5.6969697, "nullmin": 0,   "unit": "psi"     }, "name": "Rear left tire pressure",      "suggestedMetric": "rearLeftTirePressure"},
     {"id": "TOYOTA_TID_1", "path": "Tires", "name": "Tire 1 position", "fmt": {"len": 8, "map": {
           "1": { "description": "Front left",  "value": "FL" },
           "2": { "description": "Front right", "value": "FR" },
@@ -79,11 +95,16 @@
   ]},
 { "hdr": "7B0", "rax": "7B8", "dbg": true, "cmd": {"21": "03"}, "freq": 0.25,
   "signals": [
-    {"id": "TOYOTA_TIRE_FR_SPD", "path": "Movement", "fmt": {           "len": 8,  "max": 326.4,               "mul": 256, "div": 200,                "unit": "kilometersPerHour" }, "name": "Front right wheel speed"},
-    {"id": "TOYOTA_TIRE_FL_SPD", "path": "Movement", "fmt": {"bix": 8,  "len": 8,  "max": 326.4,               "mul": 256, "div": 200,                "unit": "kilometersPerHour" }, "name": "Front left wheel speed"},
-    {"id": "TOYOTA_TIRE_RR_SPD", "path": "Movement", "fmt": {"bix": 16, "len": 8,  "max": 326.4,               "mul": 256, "div": 200,                "unit": "kilometersPerHour" }, "name": "Rear right wheel speed"},
-    {"id": "TOYOTA_TIRE_RL_SPD", "path": "Movement", "fmt": {"bix": 24, "len": 8,  "max": 326.4,               "mul": 256, "div": 200,                "unit": "kilometersPerHour" }, "name": "Rear left wheel speed"},
-    {"id": "TOYOTA_STEER_ANGLE", "path": "Control",  "fmt": {"bix": 24, "len": 16, "max": 1000,  "min": -1000,             "div": 10,  "add": -32768, "unit": "degrees"           }, "name": "Steering wheel angle"}
+    {"id": "TOYOTA_TIRE_FR_SPD", "path": "Movement", "fmt": {           "len": 8,  "max": 326.4,               "mul": 256,  "div": 200,                "unit": "kilometersPerHour" }, "name": "Front right wheel speed"},
+    {"id": "TOYOTA_TS_FR",       "path": "Movement", "fmt": {           "len": 8,  "max": 326.4,               "mul": 256,  "div": 200,                "unit": "kilometersPerHour" }, "name": "Front right wheel speed"},
+    {"id": "TOYOTA_VSS",         "path": "Movement", "fmt": {           "len": 8,  "max": 326,                 "mul": 1.28,                            "unit": "kilometersPerHour" }, "name": "Vehicle speed",           "suggestedMetric": "speed", "description": "Current vehicle speed."},
+    {"id": "TOYOTA_TIRE_FL_SPD", "path": "Movement", "fmt": {"bix": 8,  "len": 8,  "max": 326.4,               "mul": 256,  "div": 200,                "unit": "kilometersPerHour" }, "name": "Front left wheel speed"},
+    {"id": "TOYOTA_TS_FL",       "path": "Movement", "fmt": {"bix": 8,  "len": 8,  "max": 326.4,               "mul": 256,  "div": 200,                "unit": "kilometersPerHour" }, "name": "Front left wheel speed"},
+    {"id": "TOYOTA_TIRE_RR_SPD", "path": "Movement", "fmt": {"bix": 16, "len": 8,  "max": 326.4,               "mul": 256,  "div": 200,                "unit": "kilometersPerHour" }, "name": "Rear right wheel speed"},
+    {"id": "TOYOTA_TS_RR",       "path": "Movement", "fmt": {"bix": 16, "len": 8,  "max": 326.4,               "mul": 256,  "div": 200,                "unit": "kilometersPerHour" }, "name": "Rear right wheel speed"},
+    {"id": "TOYOTA_TIRE_RL_SPD", "path": "Movement", "fmt": {"bix": 24, "len": 8,  "max": 326.4,               "mul": 256,  "div": 200,                "unit": "kilometersPerHour" }, "name": "Rear left wheel speed"},
+    {"id": "TOYOTA_STEER_ANGLE", "path": "Control",  "fmt": {"bix": 24, "len": 16, "max": 1000,  "min": -1000,              "div": 10,  "add": -32768, "unit": "degrees"           }, "name": "Steering wheel angle"},
+    {"id": "TOYOTA_TS_RL",       "path": "Movement", "fmt": {"bix": 24, "len": 8,  "max": 326.4,               "mul": 256,  "div": 200,                "unit": "kilometersPerHour" }, "name": "Rear left wheel speed"}
   ]},
 { "hdr": "7B1", "dbg": true, "cmd": {"22": "1026"}, "freq": 1,
   "signals": [
@@ -95,7 +116,8 @@
   ]},
 { "hdr": "7C0", "fcm1": true, "dbg": true, "cmd": {"22": "1022"}, "freq": 1,
   "signals": [
-    {"id": "TOYOTA_FLV", "path": "Fuel", "fmt": { "len": 16, "max": 655, "div": 100, "nullmax": 655, "unit": "liters" }, "name": "Fuel remaining", "suggestedMetric": "fuelTankLevel"}
+    {"id": "TOYOTA_FLV",             "path": "Fuel",       "fmt": { "len": 16, "max": 655, "div": 100, "nullmax": 655, "unit": "liters" }, "name": "Fuel remaining",     "suggestedMetric": "fuelTankLevel"},
+    {"id": "TOYOTA_BATTERY_VOLTAGE", "path": "Electrical", "fmt": { "len": 8,  "max": 20,  "div": 10,                  "unit": "volts"  }, "name": "B+ Battery Voltage"}
   ]},
 { "hdr": "7C0", "rax": "7C8", "dbg": true, "cmd": {"21": "29"}, "freq": 30,
   "signals": [
@@ -111,7 +133,11 @@
   ]},
 { "hdr": "7D2", "fcm1": true, "dbg": true, "cmd": {"22": "1F5B"}, "freq": 1,
   "signals": [
-    {"id": "TOYOTA_SOC", "path": "Battery", "fmt": { "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent" }, "name": "State of charge", "suggestedMetric": "stateOfCharge"}
+    {"id": "TOYOTA_SOC",           "path": "Battery",  "fmt": {           "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent"           }, "name": "State of charge",         "suggestedMetric": "stateOfCharge"},
+    {"id": "TOYOTA_VSS",           "path": "Movement", "fmt": {           "len": 8, "max": 255,                         "unit": "kilometersPerHour" }, "name": "Vehicle speed",           "suggestedMetric": "speed"},
+    {"id": "TOYOTA_HVBAT_SOC",     "path": "Battery",  "fmt": {           "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent"           }, "name": "HV battery charge",       "suggestedMetric": "stateOfCharge"},
+    {"id": "TOYOTA_HVBAT_SOC_MAX", "path": "Battery",  "fmt": {"bix": 8,  "len": 8, "max": 100,             "div": 2,   "unit": "percent"           }, "name": "HV battery charge (max)"},
+    {"id": "TOYOTA_HVBAT_SOC_MIN", "path": "Battery",  "fmt": {"bix": 16, "len": 8, "max": 100,             "div": 2,   "unit": "percent"           }, "name": "HV battery charge (min)"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "21"}, "freq": 1,
   "signals": [
