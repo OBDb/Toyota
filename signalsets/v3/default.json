@@ -1,10 +1,10 @@
 { "commands": [
 { "hdr": "700", "dbg": true, "cmd": {"22": "1059"}, "freq": 0.25,
   "signals": [
-    {"id": "TOYOTA_COROLLA_ACCEL_PEDAL",   "path": "Control", "fmt": { "len": 8,  "max": 100,                          "div": 1.42, "add": -41, "unit": "percent"    }, "name": "Accelerator Pedal"},
-    {"id": "TOYOTA_COROLLA_ENG_OIL_PRESS", "path": "Engine",  "fmt": { "len": 16, "max": 1000,             "mul": 10,  "div": 128,              "unit": "kilopascal" }, "name": "Engine Oil Pressure"},
-    {"id": "TOYOTA_COROLLA_ATF_TEMP",      "path": "Engine",  "fmt": { "len": 8,  "max": 215,  "min": -40,                          "add": -40, "unit": "celsius"    }, "name": "Transmission Fluid Temperature"},
-    {"id": "TOYOTA_COROLLA_FLI",           "path": "Fuel",    "fmt": { "len": 8,  "max": 100,              "mul": 100, "div": 255,              "unit": "percent"    }, "name": "Fuel level",                     "suggestedMetric": "fuelTankLevel"}
+    {"id": "TOYOTA_ACCEL_PEDAL",   "path": "Control", "fmt": { "len": 8,  "max": 100,                          "div": 1.42, "add": -41, "unit": "percent"    }, "name": "Accelerator Pedal"},
+    {"id": "TOYOTA_ENG_OIL_PRESS", "path": "Engine",  "fmt": { "len": 16, "max": 1000,             "mul": 10,  "div": 128,              "unit": "kilopascal" }, "name": "Engine Oil Pressure"},
+    {"id": "TOYOTA_ATF_TEMP",      "path": "Engine",  "fmt": { "len": 8,  "max": 215,  "min": -40,                          "add": -40, "unit": "celsius"    }, "name": "Transmission Fluid Temperature"},
+    {"id": "TOYOTA_FLI",           "path": "Fuel",    "fmt": { "len": 8,  "max": 100,              "mul": 100, "div": 255,              "unit": "percent"    }, "name": "Fuel level",                     "suggestedMetric": "fuelTankLevel"}
   ]},
 { "hdr": "701", "rax": "709", "dbg": true, "cmd": {"22": "1627"}, "freq": 1,
   "signals": [
@@ -75,7 +75,7 @@
   ]},
 { "hdr": "7B0", "dbg": true, "cmd": {"22": "1006"}, "freq": 5,
   "signals": [
-    {"id": "TOYOTA_COROLLA_MASTER_CYL_TEMP", "path": "Brakes", "fmt": { "len": 8, "max": 100, "min": -20, "add": -80, "unit": "celsius" }, "name": "Master Cylinder Sensor Temperature"}
+    {"id": "TOYOTA_MASTER_CYL_TEMP", "path": "Brakes", "fmt": { "len": 8, "max": 100, "min": -20, "add": -80, "unit": "celsius" }, "name": "Master Cylinder Sensor Temperature"}
   ]},
 { "hdr": "7B0", "rax": "7B8", "dbg": true, "cmd": {"21": "03"}, "freq": 0.25,
   "signals": [
@@ -87,11 +87,11 @@
   ]},
 { "hdr": "7B1", "dbg": true, "cmd": {"22": "1026"}, "freq": 1,
   "signals": [
-    {"id": "TOYOTA_COROLLA_COUPLING_TEMP", "path": "Drivetrain", "fmt": { "len": 16, "max": 100, "min": -20, "div": 128, "unit": "celsius" }, "name": "Coupling Temperature"}
+    {"id": "TOYOTA_COUPLING_TEMP", "path": "Drivetrain", "fmt": { "len": 16, "max": 100, "min": -20, "div": 128, "unit": "celsius" }, "name": "Coupling Temperature"}
   ]},
 { "hdr": "7B3", "dbg": true, "cmd": {"22": "1004"}, "freq": 0.25,
   "signals": [
-    {"id": "TOYOTA_COROLLA_STEERING_ANGLE", "path": "Control", "fmt": { "len": 16, "max": 410, "min": -410, "mul": 1.5, "sign": true, "unit": "degrees" }, "name": "Steering Angle"}
+    {"id": "TOYOTA_STEERING_ANGLE", "path": "Control", "fmt": { "len": 16, "max": 410, "min": -410, "mul": 1.5, "sign": true, "unit": "degrees" }, "name": "Steering Angle"}
   ]},
 { "hdr": "7C0", "fcm1": true, "dbg": true, "cmd": {"22": "1022"}, "freq": 1,
   "signals": [
@@ -103,7 +103,7 @@
   ]},
 { "hdr": "7D0", "dbg": true, "cmd": {"21": "62"}, "freq": 1,
   "signals": [
-    {"id": "TOYOTA_COROLLA_PARKING_BRAKE", "path": "Control", "name": "Parking Brake", "fmt": {"len": 8, "map": {
+    {"id": "TOYOTA_PARKING_BRAKE", "path": "Control", "name": "Parking Brake", "fmt": {"len": 8, "map": {
           "0": { "description": "", "value": "Off" },
           "2": { "description": "", "value": "On" }
         }}
