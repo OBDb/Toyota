@@ -13,7 +13,7 @@ permissions:
 
 # Make prefixes for this repo
 env:
-  FILTER_PREFIX: Toyota-
+  FILTER_ARGS: --filter-prefix=Toyota- --filter-prefix=Lexus- --filter-prefix=Daihatsu-
   SIGNAL_PREFIX: TOYOTA
 
 concurrency:
@@ -72,8 +72,17 @@ jobs:
           path: .meta
 
       - name: Run data extraction script
-        run: python .meta/repo-tools/extract_signalsets.py --fetch --workspace workspace --output build --filter-prefix=${{ env.FILTER_PREFIX }} --signal-prefix=${{ env.SIGNAL_PREFIX }}
+        run: python .meta/repo-tools/extract_signalsets.py --fetch --workspace workspace --output build ${{ env.FILTER_ARGS }} --signal-prefix=${{ env.SIGNAL_PREFIX }}
         id: extract_data
+
+      - name: Display provenance report in workflow summary
+        run: |
+          echo "## Signal Provenance Report" >> $GITHUB_STEP_SUMMARY
+          cat build/signal_provenance_report.md >> $GITHUB_STEP_SUMMARY
+          echo -e "\n\n## Raw JSON Data" >> $GITHUB_STEP_SUMMARY
+          echo '```json' >> $GITHUB_STEP_SUMMARY
+          cat build/signal_provenance_report.json >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
 
       - name: Checkout schemas repo
         uses: actions/checkout@v4
