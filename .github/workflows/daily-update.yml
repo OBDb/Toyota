@@ -13,7 +13,7 @@ permissions:
 
 # Make prefixes for this repo
 env:
-  FILTER_ARGS: --filter-prefix=Toyota- --filter-prefix=Lexus- --filter-prefix=Daihatsu- --filter-prefix-exclusion=Toyota-Supra
+  FILTER_ARGS: --filter-prefix=Toyota- --filter-prefix=Lexus- --filter-prefix=Daihatsu- --filter-prefix-exclusion=Toyota-GR-Supra
   SIGNAL_PREFIX: TOYOTA
 
 concurrency:
