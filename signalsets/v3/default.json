@@ -9,7 +9,7 @@
   ]},
 { "hdr": "6F1", "eax": "12", "fcm1": true, "dbg": true, "cmd": {"22": "586F"}, "freq": 30,
   "signals": [
-    {"id": "TOYOTA_EOP", "path": "Movement", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Engine oil pressure"}
+    {"id": "TOYOTA_EOP_V2", "path": "Movement", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Engine oil pressure"}
   ]},
 { "hdr": "6F1", "eax": "60", "fcm1": true, "dbg": true, "cmd": {"22": "D107"}, "freq": 0.25,
   "signals": [
@@ -50,7 +50,7 @@
   ]},
 { "hdr": "6F1", "eax": "18", "fcm1": true, "dbg": true, "cmd": {"22": "DA25"}, "freq": 30,
   "signals": [
-    {"id": "TOYOTA_EOT_V2", "path": "Engine", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Engine oil temperature"}
+    {"id": "TOYOTA_EOT_V3", "path": "Engine", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Engine oil temperature"}
   ]},
 { "hdr": "6F1", "eax": "18", "fcm1": true, "dbg": true, "cmd": {"22": "DA28"}, "freq": 1,
   "signals": [
@@ -92,14 +92,6 @@
   "signals": [
     {"id": "TOYOTA_ACCEL_PEDAL", "path": "Control", "fmt": { "len": 8, "max": 100, "div": 1.42, "add": -41, "unit": "percent" }, "name": "Accelerator Pedal"}
   ]},
-{ "hdr": "700", "dbg": true, "cmd": {"22": "1074"}, "freq": 0.25,
-  "signals": [
-    {"id": "TOYOTA_ENG_OIL_PRESS", "path": "Engine", "fmt": { "len": 16, "max": 1000, "mul": 10, "div": 128, "unit": "kilopascal" }, "name": "Engine Oil Pressure"}
-  ]},
-{ "hdr": "700", "dbg": true, "cmd": {"22": "10CD"}, "freq": 1,
-  "signals": [
-    {"id": "TOYOTA_LFPS", "path": "Fuel", "fmt": { "len": 16, "max": 3276, "min": -3276, "div": 10, "sign": true, "unit": "kilopascal" }, "name": "Low fuel pressure sensor"}
-  ]},
 { "hdr": "700", "dbg": true, "cmd": {"22": "1638"}, "freq": 1,
   "signals": [
     {"id": "TOYOTA_ATF_TEMP", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Transmission Fluid Temperature"}
@@ -108,9 +100,67 @@
   "signals": [
     {"id": "TOYOTA_FLI", "path": "Fuel", "fmt": { "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent" }, "name": "Fuel level", "suggestedMetric": "fuelTankLevel"}
   ]},
+{ "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "1017"}, "freq": 0.25,
+  "signals": [
+    {"id": "TOYOTA_INJ_VOL", "path": "Engine", "fmt": { "len": 16, "max": 20.4, "div": 3200, "unit": "liters" }, "name": "Injection volume"}
+  ]},
+{ "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "102A"}, "freq": 1,
+  "signals": [
+    {"id": "TOYOTA_A_F_RATIO_LEARNED_IDLE_BANK_1",  "path": "Engine", "fmt": {           "len": 8, "max": 50, "min": -50, "mul": 100, "div": 255, "add": -50, "unit": "percent" }, "name": "A/F ratio learned idle, bank 1"},
+    {"id": "TOYOTA_A_F_RATIO_LEARNED_LOW_BANK_1",   "path": "Engine", "fmt": {"bix": 8,  "len": 8, "max": 50, "min": -50, "mul": 100, "div": 255, "add": -50, "unit": "percent" }, "name": "A/F ratio learned low, bank 1"},
+    {"id": "TOYOTA_A_F_RATIO_LEARNED_MID_1_BANK_1", "path": "Engine", "fmt": {"bix": 16, "len": 8, "max": 50, "min": -50, "mul": 100, "div": 255, "add": -50, "unit": "percent" }, "name": "A/F ratio learned mid 1, bank 1"},
+    {"id": "TOYOTA_A_F_RATIO_LEARNED_MID_2_BANK_1", "path": "Engine", "fmt": {"bix": 24, "len": 8, "max": 50, "min": -50, "mul": 100, "div": 255, "add": -50, "unit": "percent" }, "name": "A/F ratio learned mid 2, bank 1"},
+    {"id": "TOYOTA_A_F_RATIO_LEARNED_HIGH_BANK_1",  "path": "Engine", "fmt": {"bix": 32, "len": 8, "max": 50, "min": -50, "mul": 100, "div": 255, "add": -50, "unit": "percent" }, "name": "A/F ratio learned high, bank 1"}
+  ]},
+{ "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "1043"}, "freq": 0.25,
+  "signals": [
+    {"id": "TOYOTA_EWP_TARGET_VSS", "path": "Engine", "fmt": {          "len": 8, "max": 6375, "mul": 25, "unit": "rpm" }, "name": "Electric water pump target speed"},
+    {"id": "TOYOTA_EWP_RPM",        "path": "Engine", "fmt": {"bix": 8, "len": 8, "max": 6375, "mul": 25, "unit": "rpm" }, "name": "Electric water pump RPM"}
+  ]},
+{ "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "105C"}, "freq": 1,
+  "signals": [
+    {"id": "TOYOTA_KNOCK_CORRECT_LEARNED_VALUE", "path": "Engine", "fmt": {           "len": 16, "max": 1023, "min": -1024, "mul": 312.5, "div": 10000, "add": -1024, "unit": "scalar" }, "name": "Knock correction, learned value"},
+    {"id": "TOYOTA_KNOCK_FEEDBACK_VALUE",        "path": "Engine", "fmt": {"bix": 16, "len": 16, "max": 1023, "min": -1024, "mul": 312.5, "div": 10000, "add": -1024, "unit": "scalar" }, "name": "Knock feedback value"}
+  ]},
+{ "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "105E"}, "freq": 1,
+  "signals": [
+    {"id": "TOYOTA_ECU_INTERNAL_T", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "ECU internal temperature"}
+  ]},
+{ "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "1062"}, "freq": 1,
+  "signals": [
+    {"id": "TOYOTA_EXHAUST_VVT_OCV_CONTROL_DUTY", "path": "Engine", "fmt": { "len": 16, "max": 400, "mul": 400, "div": 65535, "unit": "percent" }, "name": "Exhaust VVT oil control valve control duty"}
+  ]},
+{ "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "106F"}, "freq": 0.25,
+  "signals": [
+    {"id": "TOYOTA_INTAKE_VVT_TARGET_ANGLE_B1", "path": "Engine", "fmt": { "len": 16, "max": 639.9, "mul": 639.9, "div": 65535, "unit": "degrees" }, "name": "Intake VVT target angle B1"}
+  ]},
+{ "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "1071"}, "freq": 0.25,
+  "signals": [
+    {"id": "TOYOTA_EXHAUST_VVT_TARGET_ANGLE_B1", "path": "Engine", "fmt": { "len": 16, "max": 639.9, "mul": 639.9, "div": 65535, "unit": "degrees" }, "name": "Exhaust VVT target angle B1"}
+  ]},
+{ "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "1074"}, "freq": 0.25,
+  "signals": [
+    {"id": "TOYOTA_EOP",           "path": "Engine", "fmt": { "len": 16, "max": 5119,            "div": 12.8, "unit": "kilopascal" }, "name": "Engine oil pressure"},
+    {"id": "TOYOTA_ENG_OIL_PRESS", "path": "Engine", "fmt": { "len": 16, "max": 1000, "mul": 10, "div": 128,  "unit": "kilopascal" }, "name": "Engine Oil Pressure"}
+  ]},
+{ "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "1078"}, "freq": 1,
+  "signals": [
+    {"id": "TOYOTA_IDLE_SAC_CYL_1", "path": "Engine", "fmt": {           "len": 8, "max": 15.9375, "mul": 6.25, "div": 100, "unit": "degrees" }, "name": "Idle spark advance control, cylinder 1"},
+    {"id": "TOYOTA_IDLE_SAC_CYL_2", "path": "Engine", "fmt": {"bix": 8,  "len": 8, "max": 15.9375, "mul": 6.25, "div": 100, "unit": "degrees" }, "name": "Idle spark advance control, cylinder 2"},
+    {"id": "TOYOTA_IDLE_SAC_CYL_3", "path": "Engine", "fmt": {"bix": 16, "len": 8, "max": 15.9375, "mul": 6.25, "div": 100, "unit": "degrees" }, "name": "Idle spark advance control, cylinder 3"},
+    {"id": "TOYOTA_IDLE_SAC_CYL_4", "path": "Engine", "fmt": {"bix": 24, "len": 8, "max": 15.9375, "mul": 6.25, "div": 100, "unit": "degrees" }, "name": "Idle spark advance control, cylinder 4"}
+  ]},
+{ "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "107B"}, "freq": 1,
+  "signals": [
+    {"id": "TOYOTA_EOT_V2", "path": "Engine", "fmt": {"bix": 192, "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Engine oil temperature"}
+  ]},
+{ "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "1087"}, "freq": 0.25,
+  "signals": [
+    {"id": "TOYOTA_INTAKE_VVT_CHANGE_ANGLE_BANK_1", "path": "Engine", "fmt": { "len": 16, "max": 639.9, "mul": 639.9, "div": 65535, "unit": "degrees" }, "name": "Intake VVT change angle bank 1"}
+  ]},
 { "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "10A5"}, "freq": 1,
   "signals": [
-    {"id": "TOYOTA_MIS_ALL", "path": "Engine.Misfires", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Misfire count, all"}
+    {"id": "TOYOTA_MISFIRE_COUNT", "path": "Engine", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Misfire, all cylinders counter"}
   ]},
 { "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "10A7"}, "freq": 1,
   "signals": [
@@ -119,9 +169,32 @@
     {"id": "TOYOTA_MIS_3", "path": "Engine.Misfires", "fmt": {"bix": 16, "len": 8, "max": 255, "unit": "scalar" }, "name": "Misfire count, cylinder 3"},
     {"id": "TOYOTA_MIS_4", "path": "Engine.Misfires", "fmt": {"bix": 24, "len": 8, "max": 255, "unit": "scalar" }, "name": "Misfire count, cylinder 4"}
   ]},
+{ "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "10AA"}, "freq": 1,
+  "signals": [
+    {"id": "TOYOTA_MISFIRE_LOAD",   "path": "Engine", "fmt": {           "len": 8, "max": 510,               "mul": 510,  "div": 255,              "unit": "percent" }, "name": "Misfire load"},
+    {"id": "TOYOTA_MISFIRE_RPM",    "path": "Engine", "fmt": {"bix": 24, "len": 8, "max": 6375,              "mul": 6375, "div": 255,              "unit": "rpm"     }, "name": "Misfire RPM"},
+    {"id": "TOYOTA_MISFIRE_MARGIN", "path": "Engine", "fmt": {"bix": 32, "len": 8, "max": 127,  "min": -128,                          "add": -128, "unit": "rpm"     }, "name": "Misfire margin"}
+  ]},
+{ "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "10CD"}, "freq": 1,
+  "signals": [
+    {"id": "TOYOTA_LFP",  "path": "Fuel", "fmt": { "len": 16, "max": 100,                "div": 10, "add": -3276.8,               "unit": "kilopascal" }, "name": "Low fuel pressure sensor"},
+    {"id": "TOYOTA_LFPS", "path": "Fuel", "fmt": { "len": 16, "max": 3276, "min": -3276, "div": 10,                 "sign": true, "unit": "kilopascal" }, "name": "Low fuel pressure sensor"}
+  ]},
+{ "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "1F3C"}, "freq": 1,
+  "signals": [
+    {"id": "TOYOTA_CAT_T_BANK_1_SENSOR_1", "path": "Engine", "fmt": { "len": 16, "max": 6513.5, "min": -40, "div": 10, "add": -40, "unit": "celsius" }, "name": "Catalyst temperature, bank 1 sensor 1"}
+  ]},
+{ "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "1F3E"}, "freq": 1,
+  "signals": [
+    {"id": "TOYOTA_CAT_T_BANK_1_SENSOR_2", "path": "Engine", "fmt": { "len": 16, "max": 6513.5, "min": -40, "div": 10, "add": -40, "unit": "celsius" }, "name": "Catalyst temperature, bank 1 sensor 2"}
+  ]},
 { "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "1F5C"}, "freq": 1,
   "signals": [
-    {"id": "TOYOTA_EOT_V2", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Engine oil temperature"}
+    {"id": "TOYOTA_EOT_V2", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Engine oil temperature, variation 2"}
+  ]},
+{ "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "2848"}, "freq": 0.5,
+  "signals": [
+    {"id": "TOYOTA_EOP_CONTROL_VALVE", "path": "Engine", "fmt": { "len": 16, "max": 4999, "mul": 762.93, "div": 10000, "unit": "milliamps" }, "name": "Engine oil pressure control valve"}
   ]},
 { "hdr": "701", "dbg": true, "cmd": {"22": "0103"}, "freq": 10,
   "signals": [
@@ -129,7 +202,8 @@
   ]},
 { "hdr": "701", "rax": "709", "dbg": true, "cmd": {"22": "1627"}, "freq": 1,
   "signals": [
-    {"id": "TOYOTA_TF1_PAN", "path": "Engine", "fmt": { "len": 16, "max": 350, "min": -40, "mul": 0.00703125, "add": -40, "unit": "fahrenheit" }, "name": "Transmission fluid pan temperature"}
+    {"id": "TOYOTA_TFP_T",   "path": "Transmission", "fmt": { "len": 16, "max": 215, "min": -40,                    "div": 256, "add": -40, "unit": "celsius"    }, "name": "Transmission fluid pan temperature"},
+    {"id": "TOYOTA_TF1_PAN", "path": "Engine",       "fmt": { "len": 16, "max": 350, "min": -40, "mul": 0.00703125,             "add": -40, "unit": "fahrenheit" }, "name": "Transmission fluid pan temperature"}
   ]},
 { "hdr": "701", "rax": "709", "dbg": true, "cmd": {"22": "1628"}, "freq": 1,
   "signals": [
@@ -272,6 +346,14 @@
     {"id": "TOYOTA_TP_RR_V1",    "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 3.8, "div": 58, "add": -0.5, "nullmin": 0, "unit": "bars" }, "name": "Rear right tire pressure",  "suggestedMetric": "rearRightTirePressure"},
     {"id": "TOYOTA_TP_SPARE",    "path": "Tires", "fmt": {"bix": 32, "len": 8, "max": 4,   "div": 58, "add": -0.5,               "unit": "bars" }, "name": "Spare tire pressure"},
     {"id": "TOYOTA_TP_SPARE_V1", "path": "Tires", "fmt": {"bix": 32, "len": 8, "max": 3.8, "div": 58, "add": -0.5, "nullmin": 0, "unit": "bars" }, "name": "Spare tire pressure"}
+  ]},
+{ "hdr": "750", "rax": "758", "eax": "2A", "tst": "2A", "tmo": "96", "fcm1": true, "dbg": true, "cmd": {"21": "16"}, "freq": 5,
+  "signals": [
+    {"id": "TOYOTA_TT_FL_V2",    "path": "Tires", "fmt": {           "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -40, "unit": "celsius" }, "name": "Front left tire temperature"},
+    {"id": "TOYOTA_TT_FR_V2",    "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -40, "unit": "celsius" }, "name": "Front right tire temperature"},
+    {"id": "TOYOTA_TT_RL_V2",    "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -40, "unit": "celsius" }, "name": "Rear left tire temperature"},
+    {"id": "TOYOTA_TT_RR_V2",    "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -40, "unit": "celsius" }, "name": "Rear right tire temperature"},
+    {"id": "TOYOTA_TT_SPARE_V2", "path": "Tires", "fmt": {"bix": 32, "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -40, "unit": "celsius" }, "name": "Spare tire temperature"}
   ]},
 { "hdr": "750", "rax": "758", "eax": "2A", "tst": "2A", "fcm1": true, "dbg": true, "cmd": {"22": "1004"}, "freq": 5,
   "signals": [
