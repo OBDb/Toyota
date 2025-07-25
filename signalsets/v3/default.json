@@ -334,18 +334,18 @@
     {"id": "TOYOTA_TT_RR",    "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 150, "min": -20, "add": -40, "unit": "celsius" }, "name": "Rear right tire temperature"},
     {"id": "TOYOTA_TT_SPARE", "path": "Tires", "fmt": {"bix": 32, "len": 8, "max": 150, "min": -20, "add": -40, "unit": "celsius" }, "name": "Spare tire temperature"}
   ]},
-{ "hdr": "750", "eax": "2A", "tst": "2A", "fcm1": true, "dbg": true, "cmd": {"21": "30"}, "freq": 5,
+{ "hdr": "750", "eax": "2A", "tst": "2A", "fcm1": true, "dbg": true, "cmd": {"21": "30"}, "freq": 2.5,
   "signals": [
-    {"id": "TOYOTA_TP_FL",       "path": "Tires", "fmt": {           "len": 8, "max": 4,   "div": 58, "add": -0.5,               "unit": "bars" }, "name": "Front left tire pressure",  "suggestedMetric": "frontLeftTirePressure"},
-    {"id": "TOYOTA_TP_FL_V1",    "path": "Tires", "fmt": {           "len": 8, "max": 3.8, "div": 58, "add": -0.5, "nullmin": 0, "unit": "bars" }, "name": "Front left tire pressure",  "suggestedMetric": "frontLeftTirePressure"},
-    {"id": "TOYOTA_TP_FR",       "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 4,   "div": 58, "add": -0.5,               "unit": "bars" }, "name": "Front right tire pressure", "suggestedMetric": "frontRightTirePressure"},
-    {"id": "TOYOTA_TP_FR_V1",    "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 3.8, "div": 58, "add": -0.5, "nullmin": 0, "unit": "bars" }, "name": "Front right tire pressure", "suggestedMetric": "frontRightTirePressure"},
-    {"id": "TOYOTA_TP_RL",       "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 4,   "div": 58, "add": -0.5,               "unit": "bars" }, "name": "Rear left tire pressure",   "suggestedMetric": "rearLeftTirePressure"},
-    {"id": "TOYOTA_TP_RL_V1",    "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 3.8, "div": 58, "add": -0.5, "nullmin": 0, "unit": "bars" }, "name": "Rear left tire pressure",   "suggestedMetric": "rearLeftTirePressure"},
-    {"id": "TOYOTA_TP_RR",       "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 4,   "div": 58, "add": -0.5,               "unit": "bars" }, "name": "Rear right tire pressure",  "suggestedMetric": "rearRightTirePressure"},
-    {"id": "TOYOTA_TP_RR_V1",    "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 3.8, "div": 58, "add": -0.5, "nullmin": 0, "unit": "bars" }, "name": "Rear right tire pressure",  "suggestedMetric": "rearRightTirePressure"},
-    {"id": "TOYOTA_TP_SPARE",    "path": "Tires", "fmt": {"bix": 32, "len": 8, "max": 4,   "div": 58, "add": -0.5,               "unit": "bars" }, "name": "Spare tire pressure"},
-    {"id": "TOYOTA_TP_SPARE_V1", "path": "Tires", "fmt": {"bix": 32, "len": 8, "max": 3.8, "div": 58, "add": -0.5, "nullmin": 0, "unit": "bars" }, "name": "Spare tire pressure"}
+    {"id": "TOYOTA_TP_FL",       "path": "Tires", "fmt": {           "len": 8, "max": 3.88, "div": 58, "add": -0.5,               "unit": "bars" }, "name": "Front left tire pressure",  "suggestedMetric": "frontLeftTirePressure"},
+    {"id": "TOYOTA_TP_FL_V1",    "path": "Tires", "fmt": {           "len": 8, "max": 3.8,  "div": 58, "add": -0.5, "nullmin": 0, "unit": "bars" }, "name": "Front left tire pressure",  "suggestedMetric": "frontLeftTirePressure"},
+    {"id": "TOYOTA_TP_FR",       "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 3.88, "div": 58, "add": -0.5,               "unit": "bars" }, "name": "Front right tire pressure", "suggestedMetric": "frontRightTirePressure"},
+    {"id": "TOYOTA_TP_FR_V1",    "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 3.8,  "div": 58, "add": -0.5, "nullmin": 0, "unit": "bars" }, "name": "Front right tire pressure", "suggestedMetric": "frontRightTirePressure"},
+    {"id": "TOYOTA_TP_RL",       "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 3.88, "div": 58, "add": -0.5,               "unit": "bars" }, "name": "Rear left tire pressure",   "suggestedMetric": "rearLeftTirePressure"},
+    {"id": "TOYOTA_TP_RL_V1",    "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 3.8,  "div": 58, "add": -0.5, "nullmin": 0, "unit": "bars" }, "name": "Rear left tire pressure",   "suggestedMetric": "rearLeftTirePressure"},
+    {"id": "TOYOTA_TP_RR",       "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 3.88, "div": 58, "add": -0.5,               "unit": "bars" }, "name": "Rear right tire pressure",  "suggestedMetric": "rearRightTirePressure"},
+    {"id": "TOYOTA_TP_RR_V1",    "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 3.8,  "div": 58, "add": -0.5, "nullmin": 0, "unit": "bars" }, "name": "Rear right tire pressure",  "suggestedMetric": "rearRightTirePressure"},
+    {"id": "TOYOTA_TP_SPARE",    "path": "Tires", "fmt": {"bix": 32, "len": 8, "max": 3.88, "div": 58, "add": -0.5,               "unit": "bars" }, "name": "Spare tire pressure"},
+    {"id": "TOYOTA_TP_SPARE_V1", "path": "Tires", "fmt": {"bix": 32, "len": 8, "max": 3.8,  "div": 58, "add": -0.5, "nullmin": 0, "unit": "bars" }, "name": "Spare tire pressure"}
   ]},
 { "hdr": "750", "rax": "758", "eax": "2A", "tst": "2A", "tmo": "96", "fcm1": true, "dbg": true, "cmd": {"21": "16"}, "freq": 5,
   "signals": [
@@ -428,16 +428,17 @@
   "signals": [
     {"id": "TOYOTA_MASTER_CYL_TEMP", "path": "Brakes", "fmt": { "len": 8, "max": 100, "min": -20, "add": -80, "unit": "celsius" }, "name": "Master Cylinder Sensor Temperature"}
   ]},
-{ "hdr": "7B0", "rax": "7B8", "dbg": true, "cmd": {"21": "21"}, "freq": 0.25,
+{ "hdr": "7B0", "rax": "7B8", "dbg": true, "cmd": {"21": "21"}, "freq": 0.2,
   "signals": [
-    {"id": "TOYOTA_VSS", "path": "Movement", "fmt": { "len": 8, "max": 326, "mul": 1.28, "unit": "kilometersPerHour" }, "name": "Vehicle speed", "suggestedMetric": "speed", "description": "Current vehicle speed."}
+    {"id": "TOYOTA_VSS",    "path": "Movement", "fmt": { "len": 8, "max": 323.85, "mul": 1.35, "unit": "kilometersPerHour" }, "name": "Vehicle speed", "suggestedMetric": "speed", "description": "Current vehicle speed."},
+    {"id": "TOYOTA_VSS_V3", "path": "Movement", "fmt": { "len": 8, "max": 326,    "mul": 1.28, "unit": "kilometersPerHour" }, "name": "Vehicle speed", "suggestedMetric": "speed", "description": "Current vehicle speed."}
   ]},
 { "hdr": "7B0", "rax": "7B8", "dbg": true, "cmd": {"21": "47"}, "freq": 0.25,
   "signals": [
     {"id": "TOYOTA_LAT_G",       "path": "Orientation", "fmt": {           "len": 8,  "max": 2.5,  "min": -2.5,  "div": 50,                 "sign": true, "unit": "gravity" }, "name": "Lateral g"},
     {"id": "TOYOTA_LNG_G",       "path": "Orientation", "fmt": {"bix": 8,  "len": 8,  "max": 2.5,  "min": -2.5,  "div": 50,                 "sign": true, "unit": "gravity" }, "name": "Longitudinal g"},
-    {"id": "TOYOTA_YAW_RATE",    "path": "Orientation", "fmt": {"bix": 16, "len": 8,  "max": 127,  "min": -128,             "add": -128,                  "unit": "degrees" }, "name": "Yaw rate value (degrees/se"},
-    {"id": "TOYOTA_STEER_ANGLE", "path": "Control",     "fmt": {"bix": 24, "len": 16, "max": 3276, "min": -3276, "div": 10, "add": -3276.8,               "unit": "degrees" }, "name": "Steering wheel angle",       "description": "Positive = counter-clockwise, negative = clockwise."}
+    {"id": "TOYOTA_YAW_RATE",    "path": "Orientation", "fmt": {"bix": 16, "len": 8,  "max": 127,  "min": -128,             "add": -128,                  "unit": "degrees" }, "name": "Yaw rate value (degrees/sec)"},
+    {"id": "TOYOTA_STEER_ANGLE", "path": "Control",     "fmt": {"bix": 24, "len": 16, "max": 3276, "min": -3276, "div": 10, "add": -3276.8,               "unit": "degrees" }, "name": "Steering wheel angle",         "description": "Positive = counter-clockwise, negative = clockwise."}
   ]},
 { "hdr": "7B1", "dbg": true, "cmd": {"22": "1026"}, "freq": 1,
   "signals": [
@@ -455,15 +456,25 @@
   "signals": [
     {"id": "TOYOTA_FLV", "path": "Fuel", "fmt": { "len": 16, "max": 655, "div": 100, "nullmax": 655, "unit": "liters" }, "name": "Fuel remaining", "suggestedMetric": "fuelTankLevel"}
   ]},
-{ "hdr": "7C0", "rax": "7C8", "dbg": true, "cmd": {"21": "29"}, "freq": 30,
+{ "hdr": "7C0", "rax": "7C8", "dbg": true, "cmd": {"21": "29"}, "freq": 5,
   "signals": [
-    {"id": "TOYOTA_FLI_VOL", "path": "Fuel", "fmt": { "len": 8, "max": 127.5, "div": 2, "unit": "liters" }, "name": "Fuel level (volume)", "suggestedMetric": "fuelTankLevel"}
+    {"id": "TOYOTA_FLI_VOL", "path": "Fuel", "fmt": { "len": 8, "max": 21, "mul": 500, "div": 3785, "unit": "gallons" }, "name": "Fuel level (volume)", "suggestedMetric": "fuelTankLevel"}
   ]},
 { "hdr": "7D0", "dbg": true, "cmd": {"21": "62"}, "freq": 1,
   "signals": [
     {"id": "TOYOTA_PARKING_BRAKE", "path": "Control", "name": "Parking brake", "fmt": {"len": 8, "map": {
-          "0": { "description": "", "value": "Off" },
-          "2": { "description": "", "value": "On" }
+          "1":   { "description": "", "value": "Off" },
+          "3":   { "description": "", "value": "On" },
+          "5":   { "description": "", "value": "Off" },
+          "7":   { "description": "", "value": "On" },
+          "9":   { "description": "", "value": "Off" },
+          "11":  { "description": "", "value": "On" },
+          "16":  { "description": "", "value": "Off" },
+          "48":  { "description": "", "value": "On" },
+          "144": { "description": "", "value": "Off" },
+          "176": { "description": "", "value": "On" },
+          "208": { "description": "", "value": "Off" },
+          "240": { "description": "", "value": "On" }
         }}
     }
   ]},
@@ -578,10 +589,10 @@
     {"id": "TOYOTA_ATF_PAN_T", "path": "Transmission", "fmt": {           "len": 16, "max": 215, "min": -40, "div": 256, "add": -40, "unit": "celsius" }, "name": "Transmission temperature (pan)"},
     {"id": "TOYOTA_ATF_TQC_T", "path": "Transmission", "fmt": {"bix": 16, "len": 16, "max": 215, "min": -40, "div": 256, "add": -40, "unit": "celsius" }, "name": "Transmission temperature (torque converter)"}
   ]},
-{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "85"}, "freq": 0.5,
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "85"}, "freq": 0.4,
   "signals": [
-    {"id": "TOYOTA_GEAR",        "path": "Transmission", "fmt": {          "len": 8, "max": 20, "unit": "scalar" }, "name": "Gear"},
-    {"id": "TOYOTA_GEAR_LOCKUP", "path": "Transmission", "fmt": {"bix": 8, "len": 1, "max": 1,  "unit": "offon"  }, "name": "Gear lock-up", "description": "Mechanism within the automatic transmission that momentarily locks the gears during gear changes, providing a smoother and more efficient transition between different gears, especially when accelerating or decelerating; essentially helps minimize power loss and jerkiness during gear shifts."}
+    {"id": "TOYOTA_GEAR",       "path": "Transmission", "fmt": {          "len": 8, "max": 20, "unit": "scalar" }, "name": "Gear"},
+    {"id": "TOYOTA_TQC_LOCKUP", "path": "Transmission", "fmt": {"bix": 8, "len": 1, "max": 1,  "unit": "offon"  }, "name": "Torque converter lock-up", "description": "Engages a clutch inside the torque converter to create a direct connection between the engine and transmission, reducing slippage and improving efficiency."}
   ]}
 ]
 }
