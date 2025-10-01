@@ -196,7 +196,7 @@
   "signals": [
     {"id": "TOYOTA_EOP_CONTROL_VALVE", "path": "Engine", "fmt": { "len": 16, "max": 4999, "mul": 762.93, "div": 10000, "unit": "milliamps" }, "name": "Engine oil pressure control valve"}
   ]},
-{ "hdr": "701", "dbg": true, "cmd": {"22": "0103"}, "freq": 10,
+{ "hdr": "701", "rax": "709", "dbg": true, "cmd": {"22": "0103"}, "freq": 10,
   "signals": [
     {"id": "TOYOTA_ODO_V5", "path": "Trips", "fmt": {"bix": 8, "len": 24, "max": 16777215, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"}
   ]},
