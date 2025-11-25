@@ -1,6 +1,6 @@
 tests/schemas/
 __pycache__
-build/
-.meta/
-workspace/
-
+.claude/skills
+.claude/settings.local.json
+tests/*.py
+.vscode/*.json
