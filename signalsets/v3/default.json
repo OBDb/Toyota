@@ -13,7 +13,7 @@
   ]},
 { "hdr": "6F1", "eax": "60", "fcm1": true, "dbg": true, "cmd": {"22": "D107"}, "freq": 0.25,
   "signals": [
-    {"id": "TOYOTA_VSS_V2", "path": "Movement", "fmt": { "len": 16, "max": 255, "div": 10, "unit": "kilometersPerHour" }, "name": "Vehicle speed", "suggestedMetric": "speed", "description": "Speedometer vehicle speed."}
+    {"id": "TOYOTA_VSS_V3", "path": "Movement", "fmt": { "len": 16, "max": 255, "div": 10, "unit": "kilometersPerHour" }, "name": "Vehicle speed", "suggestedMetric": "speed", "description": "Speedometer vehicle speed."}
   ]},
 { "hdr": "6F1", "eax": "60", "fcm1": true, "dbg": true, "cmd": {"22": "D10D"}, "freq": 5,
   "signals": [
@@ -94,8 +94,7 @@
   ]},
 { "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "1002"}, "freq": 1,
   "signals": [
-    {"id": "TOYOTA_BAT_VOLTAGE", "path": "Battery", "fmt": { "len": 16, "max": 79, "mul": 12.207, "div": 10000, "unit": "volts" }, "name": "Battery voltage"},
-    {"id": "TOYOTA_12V_V",       "path": "Battery", "fmt": { "len": 16, "max": 15, "mul": 12.207, "div": 10000, "unit": "volts" }, "name": "Battery voltage", "suggestedMetric": "starterBatteryVoltage"}
+    {"id": "TOYOTA_12V_V", "path": "Battery", "fmt": { "len": 16, "max": 79, "mul": 12.207, "div": 10000, "unit": "volts" }, "name": "Battery voltage", "suggestedMetric": "starterBatteryVoltage"}
   ]},
 { "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "1017"}, "freq": 0.25,
   "signals": [
@@ -187,8 +186,8 @@
   ]},
 { "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "107B"}, "freq": 1,
   "signals": [
-    {"id": "TOYOTA_EOT_V2",    "path": "Engine", "fmt": {"bix": 192, "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Engine oil temperature", "suggestedMetric": "engineOilTemperature"},
-    {"id": "TOYOTA_EOT_V2_V2", "path": "Engine", "fmt": {"bix": 192, "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Engine oil temperature"}
+    {"id": "TOYOTA_EOT_V2", "path": "Engine", "fmt": {"bix": 192, "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Engine oil temperature", "suggestedMetric": "engineOilTemperature"},
+    {"id": "TOYOTA_EOT_V2", "path": "Engine", "fmt": {"bix": 192, "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Engine oil temperature"}
   ]},
 { "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "1084"}, "freq": 1,
   "signals": [
@@ -264,12 +263,12 @@
   ]},
 { "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "10CD"}, "freq": 1,
   "signals": [
-    {"id": "TOYOTA_LFP",  "path": "Fuel", "fmt": { "len": 16, "max": 3276.7,               "div": 10, "add": -3276.8,               "unit": "kilopascal" }, "name": "Low fuel pressure sensor"},
+    {"id": "TOYOTA_LFP",  "path": "Fuel", "fmt": { "len": 16, "max": 3276.7,               "div": 10, "add": -3276.8,               "unit": "kilopascal" }, "name": "Low fuel pressure"},
     {"id": "TOYOTA_LFPS", "path": "Fuel", "fmt": { "len": 16, "max": 3276,   "min": -3276, "div": 10,                 "sign": true, "unit": "kilopascal" }, "name": "Low fuel pressure sensor"}
   ]},
 { "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "15FA"}, "freq": 1,
   "signals": [
-    {"id": "TOYOTA_ALT_DUTY_CYCLE", "path": "Engine", "fmt": { "len": 16, "max": 399, "mul": 0.006097561, "unit": "percent" }, "name": "Alternator output duty cycle"}
+    {"id": "TOYOTA_ALT_DUTY_CYCLE", "path": "Engine", "fmt": { "len": 16, "max": 399, "div": 164, "unit": "percent" }, "name": "Alternator output duty cycle"}
   ]},
 { "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "1620"}, "freq": 1,
   "signals": [
@@ -301,8 +300,8 @@
   ]},
 { "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "1F5C"}, "freq": 1,
   "signals": [
-    {"id": "TOYOTA_EOT_V2_V3", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Engine oil temperature, variation 2", "suggestedMetric": "engineOilTemperature"},
-    {"id": "TOYOTA_EOT_V3",    "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Engine oil temperature, variation 2"}
+    {"id": "TOYOTA_EOT_V2_V2", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Engine oil temperature, variation 2", "suggestedMetric": "engineOilTemperature"},
+    {"id": "TOYOTA_EOT_V3_V2", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Engine oil temperature, variation 2"}
   ]},
 { "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "1F6D"}, "freq": 1,
   "signals": [
@@ -344,7 +343,7 @@
   ]},
 { "hdr": "701", "rax": "709", "dbg": true, "cmd": {"22": "1627"}, "freq": 1,
   "signals": [
-    {"id": "TOYOTA_ATF_T_PAN", "path": "Transmission", "fmt": { "len": 16, "max": 215, "min": -40, "mul": 0.00390625,             "add": -40, "unit": "celsius"    }, "name": "Transmission fluid temperature, pan", "suggestedMetric": "transmissionFluidTemperature"},
+    {"id": "TOYOTA_ATF_T_PAN", "path": "Transmission", "fmt": { "len": 16, "max": 215, "min": -40,                    "div": 256, "add": -40, "unit": "celsius"    }, "name": "Transmission fluid temperature, pan", "suggestedMetric": "transmissionFluidTemperature"},
     {"id": "TOYOTA_TF1_PAN",   "path": "Engine",       "fmt": { "len": 16, "max": 350, "min": -40, "mul": 0.00703125,             "add": -40, "unit": "fahrenheit" }, "name": "Transmission fluid pan temperature"},
     {"id": "TOYOTA_TFP_T",     "path": "Transmission", "fmt": { "len": 16, "max": 215, "min": -40,                    "div": 256, "add": -40, "unit": "celsius"    }, "name": "Transmission fluid pan temperature"}
   ]},
@@ -589,6 +588,14 @@
     {"id": "TOYOTA_BUCKLE_RS", "path": "Seatbelts", "fmt": {"bix": 24, "len": 8, "max": 255, "unit": "scalar" }, "name": "Buckle switch, right side"},
     {"id": "TOYOTA_BUCKLE_LS", "path": "Seatbelts", "fmt": {"bix": 32, "len": 8, "max": 255, "unit": "scalar" }, "name": "Buckle switch, left side"}
   ]},
+{ "hdr": "7B0", "dbg": true, "cmd": {"21": "BC"}, "freq": 1,
+  "signals": [
+    {"id": "TOYOTA_HAZARD_SWITCH_HISTORY", "path": "Lights", "name": "Hazard switch history", "fmt": {"bix": 2, "len": 1, "map": {
+          "0": { "description": "Incomplete", "value": "INCOMPLETE" },
+          "1": { "description": "Complete",   "value": "COMPLETE" }
+        }}
+    }
+  ]},
 { "hdr": "7B0", "rax": "7B8", "dbg": true, "cmd": {"21": "03"}, "freq": 0.25,
   "signals": [
     {"id": "TOYOTA_TIRE_FR_SPD", "path": "Movement", "fmt": {           "len": 8, "max": 326.4, "mul": 256, "div": 200, "unit": "kilometersPerHour" }, "name": "Front right wheel speed"},
@@ -596,10 +603,10 @@
     {"id": "TOYOTA_TIRE_RR_SPD", "path": "Movement", "fmt": {"bix": 16, "len": 8, "max": 326.4, "mul": 256, "div": 200, "unit": "kilometersPerHour" }, "name": "Rear right wheel speed"},
     {"id": "TOYOTA_TIRE_RL_SPD", "path": "Movement", "fmt": {"bix": 24, "len": 8, "max": 326.4, "mul": 256, "div": 200, "unit": "kilometersPerHour" }, "name": "Rear left wheel speed"}
   ]},
-{ "hdr": "7B0", "rax": "7B8", "dbg": true, "cmd": {"21": "05"}, "freq": 0.25,
+{ "hdr": "7B0", "rax": "7B8", "dbg": true, "cmd": {"21": "05"}, "freq": 0.5,
   "signals": [
-    {"id": "TOYOTA_DECEL",  "path": "Orientation", "fmt": {          "len": 8, "max": 18.18, "min": -18.18, "mul": 36.36, "div": 255, "add": -18.18, "unit": "metersPerSecondSquared" }, "name": "Deceleration sensor"},
-    {"id": "TOYOTA_DECEL2", "path": "Orientation", "fmt": {"bix": 8, "len": 8, "max": 18.18, "min": -18.18, "mul": 36.36, "div": 255, "add": -18.18, "unit": "metersPerSecondSquared" }, "name": "Deceleration sensor, alternate"}
+    {"id": "TOYOTA_DECEL",   "path": "Orientation", "fmt": {          "len": 8, "max": 18.18, "min": -18.18, "mul": 36.36, "div": 255, "add": -18.18, "unit": "metersPerSecondSquared" }, "name": "Deceleration"},
+    {"id": "TOYOTA_DECEL_2", "path": "Orientation", "fmt": {"bix": 8, "len": 8, "max": 18.18, "min": -18.18, "mul": 36.36, "div": 255, "add": -18.18, "unit": "metersPerSecondSquared" }, "name": "Deceleration 2"}
   ]},
 { "hdr": "7B0", "rax": "7B8", "dbg": true, "cmd": {"21": "06"}, "freq": 0.25,
   "signals": [
@@ -607,6 +614,10 @@
     {"id": "TOYOTA_YAW_RATE",  "path": "Orientation", "fmt": {          "len": 8, "max": 127, "min": -128, "add": -128, "unit": "degrees" }, "name": "Yaw rate sensor"},
     {"id": "TOYOTA_YAW_2",     "path": "Orientation", "fmt": {"bix": 8, "len": 8, "max": 127, "min": -128, "add": -128, "unit": "scalar"  }, "name": "Yaw rate, sensor 2"},
     {"id": "TOYOTA_YAW_RATE2", "path": "Orientation", "fmt": {"bix": 8, "len": 8, "max": 127, "min": -128, "add": -128, "unit": "degrees" }, "name": "Yaw rate sensor, alternate"}
+  ]},
+{ "hdr": "7B0", "rax": "7B8", "dbg": true, "cmd": {"21": "07"}, "freq": 1,
+  "signals": [
+    {"id": "TOYOTA_WHEEL_CYLINDER_PRESSURE", "path": "Tires", "fmt": { "len": 8, "max": 5, "div": 51, "unit": "volts" }, "name": "Wheel cylinder pressure"}
   ]},
 { "hdr": "7B0", "rax": "7B8", "dbg": true, "cmd": {"21": "1D"}, "freq": 1,
   "signals": [
@@ -638,10 +649,10 @@
   ]},
 { "hdr": "7B0", "rax": "7B8", "dbg": true, "cmd": {"21": "42"}, "freq": 0.25,
   "signals": [
-    {"id": "TOYOTA_FR_ACC", "path": "Movement", "fmt": {           "len": 8, "max": 255, "unit": "metersPerSecondSquared" }, "name": "FR wheel acceleration"},
-    {"id": "TOYOTA_FL_ACC", "path": "Movement", "fmt": {"bix": 8,  "len": 8, "max": 255, "unit": "metersPerSecondSquared" }, "name": "FL wheel acceleration"},
-    {"id": "TOYOTA_RR_ACC", "path": "Movement", "fmt": {"bix": 16, "len": 8, "max": 255, "unit": "metersPerSecondSquared" }, "name": "RR wheel acceleration"},
-    {"id": "TOYOTA_RL_ACC", "path": "Movement", "fmt": {"bix": 24, "len": 8, "max": 255, "unit": "metersPerSecondSquared" }, "name": "RL wheel acceleration"}
+    {"id": "TOYOTA_FR_WHEEL_ACCELERATION", "path": "Movement", "fmt": {           "len": 8, "max": 255, "unit": "metersPerSecondSquared" }, "name": "Front right wheel acceleration"},
+    {"id": "TOYOTA_FL_WHEEL_ACCELERATION", "path": "Movement", "fmt": {"bix": 8,  "len": 8, "max": 255, "unit": "metersPerSecondSquared" }, "name": "Front left wheel acceleration"},
+    {"id": "TOYOTA_RR_WHEEL_ACCELERATION", "path": "Movement", "fmt": {"bix": 16, "len": 8, "max": 255, "unit": "metersPerSecondSquared" }, "name": "Rear right wheel acceleration"},
+    {"id": "TOYOTA_RL_WHEEL_ACCELERATION", "path": "Movement", "fmt": {"bix": 24, "len": 8, "max": 255, "unit": "metersPerSecondSquared" }, "name": "Rear left wheel acceleration"}
   ]},
 { "hdr": "7B0", "rax": "7B8", "dbg": true, "cmd": {"21": "46"}, "freq": 0.25,
   "signals": [
@@ -655,9 +666,18 @@
     {"id": "TOYOTA_LAT_G",          "path": "Orientation", "fmt": {           "len": 8,  "max": 2.5,    "min": -2.5,    "div": 50,                 "sign": true, "unit": "gravity" }, "name": "Lateral g"},
     {"id": "TOYOTA_LNG_G",          "path": "Orientation", "fmt": {"bix": 8,  "len": 8,  "max": 2.5,    "min": -2.5,    "div": 50,                 "sign": true, "unit": "gravity" }, "name": "Longitudinal g"},
     {"id": "TOYOTA_YAW_RATE_V2",    "path": "Orientation", "fmt": {"bix": 16, "len": 8,  "max": 127,    "min": -128,               "add": -128,                  "unit": "degrees" }, "name": "Yaw rate value (degrees/sec)"},
-    {"id": "TOYOTA_YAW",            "path": "Orientation", "fmt": {"bix": 16, "len": 8,  "max": 127,    "min": -128,               "add": -128,                  "unit": "scalar"  }, "name": "Yaw rate value (degrees/sec)"},
+    {"id": "TOYOTA_YAW",            "path": "Orientation", "fmt": {"bix": 16, "len": 8,  "max": 127,    "min": -128,               "add": -128,                  "unit": "scalar"  }, "name": "Yaw rate value"},
     {"id": "TOYOTA_STEER_ANGLE",    "path": "Control",     "fmt": {"bix": 24, "len": 16, "max": 3276,   "min": -3276,   "div": 10, "add": -3276.8,               "unit": "degrees" }, "name": "Steering wheel angle",         "description": "Positive = counter-clockwise, negative = clockwise."},
     {"id": "TOYOTA_STEERING_ANGLE", "path": "Control",     "fmt": {"bix": 24, "len": 16, "max": 3276.7, "min": -3276.8, "div": 10, "add": -3276.8,               "unit": "degrees" }, "name": "Steering angle value"}
+  ]},
+{ "hdr": "7B0", "rax": "7B8", "dbg": true, "cmd": {"21": "48"}, "freq": 1,
+  "signals": [
+    {"id": "TOYOTA_FR_REGEN_REQUEST",   "path": "Battery", "fmt": {           "len": 16, "max": 65535, "unit": "newtonMeters" }, "name": "Regenerative request"},
+    {"id": "TOYOTA_FR_REGEN_OPERATION", "path": "Battery", "fmt": {"bix": 16, "len": 16, "max": 65535, "unit": "newtonMeters" }, "name": "Regenerative operation"}
+  ]},
+{ "hdr": "7B0", "rax": "7B8", "dbg": true, "cmd": {"21": "58"}, "freq": 1,
+  "signals": [
+    {"id": "TOYOTA_REGEN_COOPERATION", "path": "Battery", "fmt": { "len": 1, "max": 1, "unit": "offon" }, "name": "Regen cooperation"}
   ]},
 { "hdr": "7B0", "rax": "7B8", "dbg": true, "cmd": {"21": "5A"}, "freq": 1,
   "signals": [
@@ -679,6 +699,19 @@
     {"id": "TOYOTA_RL_WHEEL_EBD_CTRL", "path": "Tires", "fmt": {"bix": 7,  "len": 1, "max": 1, "unit": "offon" }, "name": "Rear left wheel EBS status",     "description": "Electronic brakeforce distribution"},
     {"id": "TOYOTA_BA_CTRL_STATUS",    "path": "Tires", "fmt": {"bix": 11, "len": 1, "max": 1, "unit": "offon" }, "name": "Brake assist status"},
     {"id": "TOYOTA_PBA_CTRL_STATUS",   "path": "Tires", "fmt": {"bix": 12, "len": 1, "max": 1, "unit": "offon" }, "name": "Predictive brake assist status"}
+  ]},
+{ "hdr": "7B0", "rax": "7B8", "dbg": true, "cmd": {"21": "A1"}, "freq": 1,
+  "signals": [
+    {"id": "TOYOTA_ZERO_POINT_OF_YAW_RATE", "path": "Orientation", "fmt": { "len": 8, "max": 127, "min": -128, "add": -128, "unit": "scalar" }, "name": "Zero point of yaw rate"}
+  ]},
+{ "hdr": "7B0", "rax": "7B8", "dbg": true, "cmd": {"21": "A3"}, "freq": 1,
+  "signals": [
+    {"id": "TOYOTA_SLA_SOLENOID_CURRENT", "path": "Battery", "fmt": {           "len": 8, "max": 255, "unit": "milliamps" }, "name": "Main relay a, solenoid current"},
+    {"id": "TOYOTA_SLR_SOLENOID_CURRENT", "path": "Battery", "fmt": {"bix": 8,  "len": 8, "max": 255, "unit": "milliamps" }, "name": "Main relay r solenoid current"},
+    {"id": "TOYOTA_SSC_SOLENOID_CURRENT", "path": "Battery", "fmt": {"bix": 16, "len": 8, "max": 255, "unit": "milliamps" }, "name": "Service contactor solenoid current"},
+    {"id": "TOYOTA_SCC_SOLENOID_CURRENT", "path": "Battery", "fmt": {"bix": 24, "len": 8, "max": 255, "unit": "milliamps" }, "name": "Charge contactor current"},
+    {"id": "TOYOTA_SMC_SOLENOID_CURRENT", "path": "Battery", "fmt": {"bix": 32, "len": 8, "max": 255, "unit": "milliamps" }, "name": "Main connector solenoid current"},
+    {"id": "TOYOTA_SRC_SOLENOID_CURRENT", "path": "Battery", "fmt": {"bix": 40, "len": 8, "max": 255, "unit": "milliamps" }, "name": "Relay control solenoid current"}
   ]},
 { "hdr": "7B0", "rax": "7B8", "dbg": true, "cmd": {"21": "A6"}, "freq": 60,
   "signals": [
@@ -711,32 +744,58 @@
   "signals": [
     {"id": "TOYOTA_STEERING_ANGLE_V2", "path": "Control", "fmt": { "len": 16, "max": 410, "min": -410, "mul": 1.5, "sign": true, "unit": "degrees" }, "name": "Steering Angle"}
   ]},
-{ "hdr": "7C0", "dbg": true, "cmd": {"21": "A7"}, "freq": 1,
-  "signals": [
-    {"id": "TOYOTA_SEAT_BELT_BEEP", "path": "Seatbelts", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Seat belt beeps"}
-  ]},
 { "hdr": "7C0", "rax": "7C8", "dbg": true, "cmd": {"21": "12"}, "freq": 1,
   "signals": [
-    {"id": "TOYOTA_TAIL_CANCEL",       "path": "Control",   "fmt": {"bix": 2,  "len": 1, "max": 1, "unit": "offon" }, "name": "Tail cancel"},
-    {"id": "TOYOTA_P_SEATBELT_BUCKLE", "path": "Seatbelts", "fmt": {"bix": 8,  "len": 1, "max": 1, "unit": "offon" }, "name": "P-seatbelt buckle"},
-    {"id": "TOYOTA_CHECK_ENGINE",      "path": "Control",   "fmt": {"bix": 15, "len": 1, "max": 1, "unit": "offon" }, "name": "Check engine"}
+    {"id": "TOYOTA_TAIL_CANCEL_LIGHT",       "path": "Lights", "fmt": {"bix": 2,  "len": 1, "max": 1, "unit": "offon" }, "name": "Tail cancel SW"},
+    {"id": "TOYOTA_P_SEATBELT_BUCKLE_LIGHT", "path": "Lights", "fmt": {"bix": 8,  "len": 1, "max": 1, "unit": "offon" }, "name": "P-seatbelt buckle SW"},
+    {"id": "TOYOTA_CHECK_ENGINE_LIGHT",      "path": "Lights", "fmt": {"bix": 15, "len": 1, "max": 1, "unit": "offon" }, "name": "Check engine SW"},
+    {"id": "TOYOTA_EOP_LIGHT",               "path": "Lights", "fmt": {"bix": 35, "len": 1, "max": 1, "unit": "offon" }, "name": "Oil pressure switch"}
   ]},
-{ "hdr": "7C0", "rax": "7C8", "dbg": true, "cmd": {"21": "21"}, "freq": 1,
+{ "hdr": "7C0", "rax": "7C8", "dbg": true, "cmd": {"21": "13"}, "freq": 1,
   "signals": [
-    {"id": "TOYOTA_VSS_7C0", "path": "Movement", "fmt": { "len": 8, "max": 255, "unit": "kilometersPerHour" }, "name": "Vehicle speed, 7C0", "suggestedMetric": "speed"}
+    {"id": "TOYOTA_BAT_V", "path": "Battery", "fmt": { "len": 8, "max": 25.5, "div": 10, "unit": "volts" }, "name": "Battery voltage"}
+  ]},
+{ "hdr": "7C0", "rax": "7C8", "dbg": true, "cmd": {"21": "21"}, "freq": 0.25,
+  "signals": [
+    {"id": "TOYOTA_VSS_V2",  "path": "Movement", "fmt": { "len": 8, "max": 255, "unit": "kilometersPerHour" }, "name": "Speed",              "suggestedMetric": "speed"},
+    {"id": "TOYOTA_VSS_7C0", "path": "Movement", "fmt": { "len": 8, "max": 255, "unit": "kilometersPerHour" }, "name": "Vehicle speed, 7C0"}
   ]},
 { "hdr": "7C0", "rax": "7C8", "dbg": true, "cmd": {"21": "23"}, "freq": 1,
   "signals": [
-    {"id": "TOYOTA_COOLANT_T", "path": "Engine", "fmt": { "len": 8, "max": 127.5, "mul": 0.5, "unit": "celsius" }, "name": "Coolant temperature"}
+    {"id": "TOYOTA_ECT_7C0",   "path": "Engine", "fmt": { "len": 8, "max": 127.5,             "div": 2, "unit": "celsius" }, "name": "Engine coolant temperature", "suggestedMetric": "engineCoolantTemperature"},
+    {"id": "TOYOTA_COOLANT_T", "path": "Engine", "fmt": { "len": 8, "max": 127.5, "mul": 0.5,           "unit": "celsius" }, "name": "Coolant temperature"}
   ]},
 { "hdr": "7C0", "rax": "7C8", "dbg": true, "cmd": {"21": "29"}, "freq": 5,
   "signals": [
     {"id": "TOYOTA_FLI_VOL",    "path": "Fuel", "fmt": { "len": 8, "max": 21,  "mul": 500, "div": 3785, "unit": "gallons" }, "name": "Fuel level (volume)", "suggestedMetric": "fuelTankLevel"},
     {"id": "TOYOTA_FUEL_INPUT", "path": "Fuel", "fmt": { "len": 8, "max": 255,                          "unit": "liters"  }, "name": "Fuel input"}
   ]},
+{ "hdr": "7C0", "rax": "7C8", "dbg": true, "cmd": {"21": "41"}, "freq": 5,
+  "signals": [
+    {"id": "TOYOTA_OIL_CHANGE_ODO", "path": "Fluids", "fmt": { "len": 8, "max": 41038.272, "mul": 2514600, "div": 15625, "unit": "kilometers" }, "name": "Distance since oil change"}
+  ]},
+{ "hdr": "7C0", "rax": "7C8", "dbg": true, "cmd": {"21": "68"}, "freq": 1,
+  "signals": [
+    {"id": "TOYOTA_RHEOSTAT", "path": "Lights", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Rheostat", "description": "Higher values are brighter"}
+  ]},
+{ "hdr": "7C0", "rax": "7C8", "dbg": true, "cmd": {"21": "A1"}, "freq": 1,
+  "signals": [
+    {"id": "TOYOTA_KEY_REMIND_SOUND", "path": "Control", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Key remind sound"}
+  ]},
+{ "hdr": "7C0", "rax": "7C8", "dbg": true, "cmd": {"21": "A7"}, "freq": 1,
+  "signals": [
+    {"id": "TOYOTA_SEAT_BELT_BEEP_DRIVER",    "path": "Seatbelts", "fmt": {          "len": 1, "max": 1,   "unit": "offon"  }, "name": "Seat belt beep, driver"},
+    {"id": "TOYOTA_SEAT_BELT_BEEP",           "path": "Seatbelts", "fmt": {          "len": 8, "max": 255, "unit": "scalar" }, "name": "Seat belt beeps"},
+    {"id": "TOYOTA_SEAT_BELT_BEEP_PASSENGER", "path": "Seatbelts", "fmt": {"bix": 1, "len": 1, "max": 1,   "unit": "offon"  }, "name": "Seat belt beep, passenger"},
+    {"id": "TOYOTA_SEAT_BELT_BEEP_REMINDER",  "path": "Seatbelts", "fmt": {"bix": 2, "len": 1, "max": 1,   "unit": "offon"  }, "name": "Seat belt beep, reminder"}
+  ]},
+{ "hdr": "7C0", "rax": "7C8", "dbg": true, "cmd": {"21": "AC"}, "freq": 1,
+  "signals": [
+    {"id": "TOYOTA_REVERSE_BEEP", "path": "Seatbelts", "fmt": {"bix": 1, "len": 1, "max": 1, "unit": "onoff" }, "name": "Reverse beep"}
+  ]},
 { "hdr": "7C0", "rax": "7C8", "dbg": true, "cmd": {"22": "1021"}, "freq": 1,
   "signals": [
-    {"id": "TOYOTA_BATTERY_VOLTAGE", "path": "Electrical", "fmt": { "len": 8, "max": 20, "div": 10, "unit": "volts" }, "name": "B+ Battery Voltage"}
+    {"id": "TOYOTA_BATTERY_VOLTAGE_V2", "path": "Electrical", "fmt": { "len": 8, "max": 20, "div": 10, "unit": "volts" }, "name": "B+ Battery Voltage"}
   ]},
 { "hdr": "7C0", "rax": "7C8", "dbg": true, "cmd": {"22": "1022"}, "freq": 1,
   "signals": [
@@ -763,15 +822,15 @@
   ]},
 { "hdr": "7C4", "rax": "7CC", "dbg": true, "cmd": {"21": "22"}, "freq": 1,
   "signals": [
-    {"id": "TOYOTA_AAT", "path": "Climate", "fmt": { "len": 8, "max": 65.95, "min": -23.3, "mul": 89.25, "div": 255, "add": -23.3, "unit": "celsius" }, "name": "Ambient air temperature"}
+    {"id": "TOYOTA_AAT_7C4", "path": "Climate", "fmt": { "len": 8, "max": 65.95, "min": -23.3, "mul": 89.25, "div": 255, "add": -23.3, "unit": "celsius" }, "name": "Ambient air temperature"}
   ]},
 { "hdr": "7C4", "rax": "7CC", "dbg": true, "cmd": {"21": "24"}, "freq": 1,
   "signals": [
-    {"id": "TOYOTA_SOLAR_D_SIDE", "path": "Climate", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Solar sensor, driver side"}
+    {"id": "TOYOTA_SOLAR_DRIVER", "path": "Climate", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Solar sensor, driver side"}
   ]},
 { "hdr": "7C4", "rax": "7CC", "dbg": true, "cmd": {"21": "26"}, "freq": 1,
   "signals": [
-    {"id": "TOYOTA_ECT", "path": "Engine", "fmt": { "len": 8, "max": 90.55, "min": 1.3, "mul": 89.25, "div": 255, "add": 1.3, "unit": "celsius" }, "name": "Engine coolant temp"}
+    {"id": "TOYOTA_ECT", "path": "Engine", "fmt": { "len": 8, "max": 90.55, "min": 1.3, "mul": 89.25, "div": 255, "add": 1.3, "unit": "celsius" }, "name": "Engine coolant temperature"}
   ]},
 { "hdr": "7C4", "rax": "7CC", "dbg": true, "cmd": {"21": "29"}, "freq": 1,
   "signals": [
@@ -791,7 +850,7 @@
   ]},
 { "hdr": "7C4", "rax": "7CC", "dbg": true, "cmd": {"21": "53"}, "freq": 1,
   "signals": [
-    {"id": "TOYOTA_REGULATOR_P", "path": "Engine", "fmt": { "len": 8, "max": 3.29437, "min": -0.45668, "mul": 3.75105, "div": 255, "add": -0.45668, "unit": "scalar" }, "name": "Regulator pressure sensor (mpag)"}
+    {"id": "TOYOTA_REGULATOR_P", "path": "Engine", "fmt": { "len": 8, "max": 3.29437, "min": -0.45668, "mul": 3.75105, "div": 255, "add": -0.45668, "unit": "scalar" }, "name": "Regulator pressure sensor"}
   ]},
 { "hdr": "7D0", "rax": "7D8", "dbg": true, "cmd": {"21": "62"}, "freq": 1,
   "signals": [
@@ -909,11 +968,11 @@
     {"id": "TOYOTA_CALCULATED_LOAD_7E0",      "path": "Engine",   "fmt": {            "len": 8,  "max": 100,                "mul": 100, "div": 255,               "unit": "percent"           }, "name": "Calculated load_7e0"},
     {"id": "TOYOTA_VEHICLE_LOAD",             "path": "Engine",   "fmt": {"bix": 8,   "len": 16, "max": 100,                "mul": 100, "div": 65535,             "unit": "percent"           }, "name": "Vehicle load"},
     {"id": "TOYOTA_MAF",                      "path": "Engine",   "fmt": {"bix": 24,  "len": 16, "max": 655.35,                                                   "unit": "gramsPerSecond"    }, "name": "Mass air flow",                "suggestedMetric": "massAirFlow"},
-    {"id": "TOYOTA_MAP",                      "path": "Engine",   "fmt": {"bix": 40,  "len": 8,  "max": 255,                                                      "unit": "kilopascal"        }, "name": "MAP"},
+    {"id": "TOYOTA_MAP",                      "path": "Engine",   "fmt": {"bix": 40,  "len": 8,  "max": 255,                                                      "unit": "kilopascal"        }, "name": "Manifold absolute pressure"},
     {"id": "TOYOTA_INTAKE_AIR",               "path": "Engine",   "fmt": {"bix": 48,  "len": 8,  "max": 215,    "min": -40,                           "add": -40, "unit": "celsius"           }, "name": "Intake air"},
-    {"id": "TOYOTA_AMBIENT_T_V2",             "path": "Engine",   "fmt": {"bix": 56,  "len": 8,  "max": 215,    "min": -40,                           "add": -40, "unit": "celsius"           }, "name": "Ambient temperature"},
+    {"id": "TOYOTA_AAT",                      "path": "Engine",   "fmt": {"bix": 56,  "len": 8,  "max": 215,    "min": -40,                           "add": -40, "unit": "celsius"           }, "name": "Ambient temperature"},
     {"id": "TOYOTA_ATMOSPHERE_PRESSURE",      "path": "Engine",   "fmt": {"bix": 64,  "len": 8,  "max": 255,                                                      "unit": "kilopascal"        }, "name": "Atmosphere pressure"},
-    {"id": "TOYOTA_COOLANT_TEMP",             "path": "Engine",   "fmt": {"bix": 72,  "len": 8,  "max": 215,    "min": -40,                                       "unit": "celsius"           }, "name": "Coolant temp"},
+    {"id": "TOYOTA_COOLANT_TEMP",             "path": "Engine",   "fmt": {"bix": 72,  "len": 8,  "max": 215,    "min": -40,                           "add": -40, "unit": "celsius"           }, "name": "Coolant temp"},
     {"id": "TOYOTA_ENGINE_SPEED",             "path": "Movement", "fmt": {"bix": 80,  "len": 16, "max": 16383,                                                    "unit": "rpm"               }, "name": "Engine speed"},
     {"id": "TOYOTA_VEHICLE_SPEED",            "path": "Movement", "fmt": {"bix": 96,  "len": 8,  "max": 255,                                                      "unit": "kilometersPerHour" }, "name": "Vehicle speed",                "suggestedMetric": "speed"},
     {"id": "TOYOTA_ENGINE_RUN_TIME",          "path": "Engine",   "fmt": {"bix": 104, "len": 16, "max": 65535,                                                    "unit": "seconds"           }, "name": "Engine run time"},
@@ -923,9 +982,9 @@
     {"id": "TOYOTA_ACCEL_SENS_NO_1_VOLT",     "path": "Engine",   "fmt": {"bix": 144, "len": 8,  "max": 100,                "mul": 100, "div": 255,               "unit": "percent"           }, "name": "Accelerator sensor volt %, 1"},
     {"id": "TOYOTA_ACCEL_SENS_NO_2_VOLT",     "path": "Engine",   "fmt": {"bix": 152, "len": 8,  "max": 100,                "mul": 100, "div": 255,               "unit": "percent"           }, "name": "Accelerator sensor volt %, 2"},
     {"id": "TOYOTA_THROTTLE_MOTOR_DUTY",      "path": "Engine",   "fmt": {"bix": 160, "len": 8,  "max": 100,                "mul": 100, "div": 255,               "unit": "percent"           }, "name": "Throttle motor DUTY"},
-    {"id": "TOYOTA_WARMUP_CYCLE_CLEARED_DTC", "path": "Engine",   "fmt": {"bix": 176, "len": 8,  "max": 255,                                                      "unit": "scalar"            }, "name": "Warmup cycle cleared DTC"},
+    {"id": "TOYOTA_WARMUP_CYCLE_CLEARED_DTC", "path": "Engine",   "fmt": {"bix": 176, "len": 8,  "max": 255,                                                      "unit": "scalar"            }, "name": "Warm-up cycle cleared DTC"},
     {"id": "TOYOTA_TIME_AFTER_DTC_CLEARED",   "path": "Engine",   "fmt": {"bix": 192, "len": 16, "max": 65535,                                                    "unit": "minutes"           }, "name": "Time after DTC cleared"},
-    {"id": "TOYOTA_BATTERY_VOLTAGE_V2",       "path": "Battery",  "fmt": {"bix": 208, "len": 16, "max": 65.535,                                                   "unit": "volts"             }, "name": "Battery voltage"}
+    {"id": "TOYOTA_BATTERY_VOLTAGE",          "path": "Battery",  "fmt": {"bix": 208, "len": 16, "max": 65.535,                                                   "unit": "volts"             }, "name": "Battery voltage"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "03"}, "freq": 1,
   "signals": [
@@ -936,11 +995,11 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "04"}, "freq": 1,
   "signals": [
-    {"id": "TOYOTA_TARGET_AIR_FUEL_RATIO", "path": "Fuel",    "fmt": {           "len": 16, "max": 1.99,                "mul": 1.99, "div": 65535, "unit": "scalar"    }, "name": "Target air-fuel ratio"},
-    {"id": "TOYOTA_AF_LAMBDA_B1S1",        "path": "Engine",  "fmt": {"bix": 16, "len": 16, "max": 1.99,                "mul": 1.99, "div": 65535, "unit": "scalar"    }, "name": "AF lambda B1S1"},
-    {"id": "TOYOTA_AFS_VOLTAGE_B1S1",      "path": "Battery", "fmt": {"bix": 32, "len": 16, "max": 7.99,                "mul": 7.99, "div": 65535, "unit": "volts"     }, "name": "AFS voltage B1S1"},
-    {"id": "TOYOTA_AFS_CURRENT_B1S1",      "path": "Engine",  "fmt": {"bix": 64, "len": 16, "max": 127.99, "min": -128,                            "unit": "milliamps" }, "name": "AFS current B1S1"},
-    {"id": "TOYOTA_O2S_B1S2",              "path": "Engine",  "fmt": {"bix": 80, "len": 8,  "max": 1.275,               "mul": 5,    "div": 1000,  "unit": "volts"     }, "name": "O2S B1S2"}
+    {"id": "TOYOTA_TARGET_AIR_FUEL_RATIO", "path": "Fuel",    "fmt": {           "len": 16, "max": 1.99,                "mul": 1.99, "div": 65535,              "unit": "scalar"    }, "name": "Target air-fuel ratio"},
+    {"id": "TOYOTA_AF_LAMBDA_B1S1",        "path": "Engine",  "fmt": {"bix": 16, "len": 16, "max": 1.99,                "mul": 1.99, "div": 65535,              "unit": "scalar"    }, "name": "AF lambda, bank 1 sensor 1"},
+    {"id": "TOYOTA_AFS_VOLTAGE_B1S1",      "path": "Battery", "fmt": {"bix": 32, "len": 16, "max": 7.99,                "mul": 7.99, "div": 65535,              "unit": "volts"     }, "name": "Air fuel sensor voltage, bank 1 sensor 1"},
+    {"id": "TOYOTA_AFS_CURRENT_B1S1",      "path": "Engine",  "fmt": {"bix": 64, "len": 16, "max": 127.99, "min": -128,                            "add": -128, "unit": "milliamps" }, "name": "Air fuel sensor current, bank 1 sensor 1"},
+    {"id": "TOYOTA_O2S_B1S2",              "path": "Engine",  "fmt": {"bix": 80, "len": 8,  "max": 1.275,               "mul": 5,    "div": 1000,               "unit": "volts"     }, "name": "O2S, bank 1 sensor 2"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "05"}, "freq": 1,
   "signals": [
@@ -955,16 +1014,16 @@
     {"id": "TOYOTA_FUEL_SYSTEM_MONITOR_AVAIL",      "path": "DTCs", "fmt": {"bix": 14, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "Fuel system monitor_avail"},
     {"id": "TOYOTA_MISFIRE_MONITOR_AVAIL",          "path": "DTCs", "fmt": {"bix": 15, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "Misfire monitor_avail"},
     {"id": "TOYOTA_EGR_VVT_MONITOR_AVAIL",          "path": "DTCs", "fmt": {"bix": 16, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "EGR/VVT monitor_avail"},
-    {"id": "TOYOTA_O2S_A_FS_HEATER_MONITOR_AVAIL",  "path": "DTCs", "fmt": {"bix": 17, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "O2S(A/FS) heater monitor_avail"},
-    {"id": "TOYOTA_O2S_A_FS_MONITOR_AVAIL",         "path": "DTCs", "fmt": {"bix": 18, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "O2S(A/FS) monitor_avail"},
+    {"id": "TOYOTA_O2S_A_FS_HEATER_MONITOR_AVAIL",  "path": "DTCs", "fmt": {"bix": 17, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "O2S heater monitor_avail"},
+    {"id": "TOYOTA_O2S_A_FS_MONITOR_AVAIL",         "path": "DTCs", "fmt": {"bix": 18, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "O2S monitor_avail"},
     {"id": "TOYOTA_A_C_MONITOR_AVAIL",              "path": "DTCs", "fmt": {"bix": 19, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "A/C monitor_avail"},
     {"id": "TOYOTA_2ND_AIR_MONITOR_AVAIL",          "path": "DTCs", "fmt": {"bix": 20, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "2nd air monitor_avail"},
     {"id": "TOYOTA_EVAP_MONITOR_AVAIL",             "path": "DTCs", "fmt": {"bix": 21, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "EVAP monitor_avail"},
     {"id": "TOYOTA_HEATED_CATALYST_MONITOR_AVAIL",  "path": "DTCs", "fmt": {"bix": 22, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "Heated catalyst monitor_avail"},
     {"id": "TOYOTA_CATALYST_MONITOR_AVAIL",         "path": "DTCs", "fmt": {"bix": 23, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "Catalyst monitor_avail"},
     {"id": "TOYOTA_EGR_VVT_MONITOR_INCMPL",         "path": "DTCs", "fmt": {"bix": 24, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "EGR/VVT monitor_incmpl"},
-    {"id": "TOYOTA_O2S_A_FS_HEATER_MONITOR_INCMPL", "path": "DTCs", "fmt": {"bix": 25, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "O2S(A/FS) heater monitor_incmpl"},
-    {"id": "TOYOTA_O2S_A_FS_MONITOR_INCMPL",        "path": "DTCs", "fmt": {"bix": 26, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "O2S(A/FS) monitor_incmpl"},
+    {"id": "TOYOTA_O2S_A_FS_HEATER_MONITOR_INCMPL", "path": "DTCs", "fmt": {"bix": 25, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "O2S heater monitor_incmpl"},
+    {"id": "TOYOTA_O2S_A_FS_MONITOR_INCMPL",        "path": "DTCs", "fmt": {"bix": 26, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "O2S monitor_incmpl"},
     {"id": "TOYOTA_A_C_MONITOR_INCMPL",             "path": "DTCs", "fmt": {"bix": 27, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "A/C monitor_incmpl"},
     {"id": "TOYOTA_2ND_AIR_MONITOR_INCMPL",         "path": "DTCs", "fmt": {"bix": 28, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "2nd air monitor_incmpl"},
     {"id": "TOYOTA_EVAP_MONITOR_ICMPL",             "path": "DTCs", "fmt": {"bix": 29, "len": 1,  "max": 1,     "unit": "offon"      }, "name": "EVAP monitor_icmpl"},
@@ -992,27 +1051,27 @@
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "24"}, "freq": 1,
   "signals": [
     {"id": "TOYOTA_COMMUNICATION_WITH_HV",     "path": "Climate", "fmt": {"bix": 2, "len": 1, "max": 1, "unit": "offon"  }, "name": "Communication with HV"},
-    {"id": "TOYOTA_COMMUNICATION_WITH_BRAKE",  "path": "Climate", "fmt": {"bix": 4, "len": 1, "max": 1, "unit": "offon"  }, "name": "Communication with brake"},
+    {"id": "TOYOTA_COMMUNICATION_WITH_BRAKE",  "path": "Control", "fmt": {"bix": 4, "len": 1, "max": 1, "unit": "offon"  }, "name": "Communication with brake"},
     {"id": "TOYOTA_COMM_WITH_AIR_CONDITIONER", "path": "Climate", "fmt": {"bix": 5, "len": 1, "max": 1, "unit": "offon"  }, "name": "Communication with air conditioner"},
     {"id": "TOYOTA_COMM_WITH_VALVEMATIC_COMM", "path": "Climate", "fmt": {"bix": 6, "len": 1, "max": 1, "unit": "scalar" }, "name": "Communication with valvematic"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "25"}, "freq": 1,
   "signals": [
     {"id": "TOYOTA_POWER_STEERING_SIGNAL",                   "path": "Control", "fmt": {"bix": 4,  "len": 1, "max": 1, "unit": "scalar" }, "name": "Power steering"},
-    {"id": "TOYOTA_STOP_LIGHT_SWITCH",                       "path": "Control", "fmt": {"bix": 5,  "len": 1, "max": 1, "unit": "scalar" }, "name": "Stop light"},
+    {"id": "TOYOTA_STOP_LIGHT_SWITCH",                       "path": "Lights",  "fmt": {"bix": 5,  "len": 1, "max": 1, "unit": "scalar" }, "name": "Stop light"},
     {"id": "TOYOTA_CRUISE_CONTROL_LIVE_BRAKE_CANCEL_SWITCH", "path": "Control", "fmt": {"bix": 6,  "len": 1, "max": 1, "unit": "scalar" }, "name": "Cruise control live brake cancel"},
     {"id": "TOYOTA_STARTER_SIGNAL",                          "path": "Control", "fmt": {"bix": 11, "len": 1, "max": 1, "unit": "scalar" }, "name": "Starter signal"},
     {"id": "TOYOTA_STARTER_CONTROL",                         "path": "Control", "fmt": {"bix": 12, "len": 1, "max": 1, "unit": "scalar" }, "name": "Starter control"},
     {"id": "TOYOTA_ELECTRICAL_LOAD_SIGNAL_1",                "path": "Control", "fmt": {"bix": 16, "len": 1, "max": 1, "unit": "scalar" }, "name": "Electrical load signal 1"},
     {"id": "TOYOTA_ELECTRICAL_LOAD_SIGNAL_2",                "path": "Control", "fmt": {"bix": 17, "len": 1, "max": 1, "unit": "scalar" }, "name": "Electrical load signal 2"},
-    {"id": "TOYOTA_SHIFT_SW_STATUS_P_RANGE",                 "path": "Control", "fmt": {"bix": 24, "len": 1, "max": 1, "unit": "scalar" }, "name": "Shift SW status (P range)"},
-    {"id": "TOYOTA_SHIFT_SW_STATUS_R_RANGE",                 "path": "Control", "fmt": {"bix": 25, "len": 1, "max": 1, "unit": "scalar" }, "name": "Shift SW status (R range)"},
-    {"id": "TOYOTA_SHIFT_SW_STATUS_N_RANGE",                 "path": "Control", "fmt": {"bix": 26, "len": 1, "max": 1, "unit": "scalar" }, "name": "Shift SW status (N range)"},
-    {"id": "TOYOTA_SHIFT_SW_STATUS_D_RANGE",                 "path": "Control", "fmt": {"bix": 27, "len": 1, "max": 1, "unit": "scalar" }, "name": "Shift SW status (D range)"},
+    {"id": "TOYOTA_SHIFT_SW_STATUS_P_RANGE",                 "path": "Control", "fmt": {"bix": 24, "len": 1, "max": 1, "unit": "scalar" }, "name": "Shift SW status, parking"},
+    {"id": "TOYOTA_SHIFT_SW_STATUS_R_RANGE",                 "path": "Control", "fmt": {"bix": 25, "len": 1, "max": 1, "unit": "scalar" }, "name": "Shift SW status, reverse"},
+    {"id": "TOYOTA_SHIFT_SW_STATUS_N_RANGE",                 "path": "Control", "fmt": {"bix": 26, "len": 1, "max": 1, "unit": "scalar" }, "name": "Shift SW status, neutral"},
+    {"id": "TOYOTA_SHIFT_SW_STATUS_D_RANGE",                 "path": "Control", "fmt": {"bix": 27, "len": 1, "max": 1, "unit": "scalar" }, "name": "Shift SW status, drive"},
     {"id": "TOYOTA_SPORTS_MODE_SELECTION_SW",                "path": "Control", "fmt": {"bix": 32, "len": 1, "max": 1, "unit": "scalar" }, "name": "Sports mode selection"},
     {"id": "TOYOTA_SPORTS_SHIFT_UP_SW",                      "path": "Control", "fmt": {"bix": 33, "len": 1, "max": 1, "unit": "scalar" }, "name": "Sports shift up"},
     {"id": "TOYOTA_SPORTS_SHIFT_DOWN_SW",                    "path": "Control", "fmt": {"bix": 34, "len": 1, "max": 1, "unit": "scalar" }, "name": "Sports shift down"},
-    {"id": "TOYOTA_PATTERN_SWITCH_PWR_M_",                   "path": "Control", "fmt": {"bix": 42, "len": 1, "max": 1, "unit": "scalar" }, "name": "Pattern switch"},
+    {"id": "TOYOTA_PATTERN_SWITCH_PWR_M",                    "path": "Control", "fmt": {"bix": 42, "len": 1, "max": 1, "unit": "scalar" }, "name": "Pattern switch"},
     {"id": "TOYOTA_NEUTRAL_POSITION_SW_SIGNAL",              "path": "Control", "fmt": {"bix": 53, "len": 1, "max": 1, "unit": "scalar" }, "name": "Neutral position"},
     {"id": "TOYOTA_TC_TERMINAL",                             "path": "Control", "fmt": {"bix": 61, "len": 1, "max": 1, "unit": "scalar" }, "name": "TC"},
     {"id": "TOYOTA_A_C_COMPRESSOR",                          "path": "Control", "fmt": {"bix": 64, "len": 1, "max": 1, "unit": "offon"  }, "name": "A/C compressor"}
@@ -1043,7 +1102,7 @@
     {"id": "TOYOTA_VVTOT",             "path": "Engine",       "fmt": {"bix": 56,  "len": 8,  "max": 215,    "min": -40,                           "add": -40, "unit": "celsius"      }, "name": "Variable valve timing oil temperature"},
     {"id": "TOYOTA_PREV_TRIP_IAT",     "path": "Engine",       "fmt": {"bix": 64,  "len": 8,  "max": 215,    "min": -40,                           "add": -40, "unit": "celsius"      }, "name": "Intake air temperature, previous trip"},
     {"id": "TOYOTA_EOT",               "path": "Engine",       "fmt": {"bix": 72,  "len": 8,  "max": 215,    "min": -40,                           "add": -40, "unit": "celsius"      }, "name": "Engine oil temperature",                "suggestedMetric": "engineOilTemperature"},
-    {"id": "TOYOTA_EOT_V2",            "path": "Engine",       "fmt": {"bix": 72,  "len": 8,  "max": 215,    "min": -40,                           "add": -40, "unit": "celsius"      }, "name": "Engine oil temperature"},
+    {"id": "TOYOTA_EOT_V3",            "path": "Engine",       "fmt": {"bix": 72,  "len": 8,  "max": 215,    "min": -40,                           "add": -40, "unit": "celsius"      }, "name": "Engine oil temperature"},
     {"id": "TOYOTA_PREV_TRIP_EOT",     "path": "Engine",       "fmt": {"bix": 80,  "len": 8,  "max": 215,    "min": -40,                           "add": -40, "unit": "celsius"      }, "name": "Engine oil temperature, previous trip"},
     {"id": "TOYOTA_AC_AMB_T",          "path": "Climate",      "fmt": {"bix": 88,  "len": 8,  "max": 215,    "min": -40,                           "add": -40, "unit": "celsius"      }, "name": "Ambient temperature for A/C"},
     {"id": "TOYOTA_PREV_TRIP_AMB_T",   "path": "Trips",        "fmt": {"bix": 96,  "len": 8,  "max": 215,    "min": -40,                           "add": -40, "unit": "celsius"      }, "name": "Ambient temperature, previous trip"},
@@ -1074,7 +1133,7 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "DA"}, "freq": 1,
   "signals": [
-    {"id": "TOYOTA_GEAR_V2_V2", "path": "Transmission", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Current gear"}
+    {"id": "TOYOTA_GEAR_V3", "path": "Transmission", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Current gear"}
   ]}
 ]
 }
