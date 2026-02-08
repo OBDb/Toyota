@@ -186,8 +186,7 @@
   ]},
 { "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "107B"}, "freq": 1,
   "signals": [
-    {"id": "TOYOTA_EOT_V2", "path": "Engine", "fmt": {"bix": 192, "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Engine oil temperature", "suggestedMetric": "engineOilTemperature"},
-    {"id": "TOYOTA_EOT_V2", "path": "Engine", "fmt": {"bix": 192, "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Engine oil temperature"}
+    {"id": "TOYOTA_EOT_V2", "path": "Engine", "fmt": {"bix": 192, "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Engine oil temperature", "suggestedMetric": "engineOilTemperature"}
   ]},
 { "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "1084"}, "freq": 1,
   "signals": [
@@ -300,8 +299,7 @@
   ]},
 { "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "1F5C"}, "freq": 1,
   "signals": [
-    {"id": "TOYOTA_EOT_V2_V2", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Engine oil temperature, variation 2", "suggestedMetric": "engineOilTemperature"},
-    {"id": "TOYOTA_EOT_V3_V2", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Engine oil temperature, variation 2"}
+    {"id": "TOYOTA_EOT_V2", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Engine oil temperature, variation 2", "suggestedMetric": "engineOilTemperature"}
   ]},
 { "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "1F6D"}, "freq": 1,
   "signals": [
@@ -344,8 +342,7 @@
 { "hdr": "701", "rax": "709", "dbg": true, "cmd": {"22": "1627"}, "freq": 1,
   "signals": [
     {"id": "TOYOTA_ATF_T_PAN", "path": "Transmission", "fmt": { "len": 16, "max": 215, "min": -40,                    "div": 256, "add": -40, "unit": "celsius"    }, "name": "Transmission fluid temperature, pan", "suggestedMetric": "transmissionFluidTemperature"},
-    {"id": "TOYOTA_TF1_PAN",   "path": "Engine",       "fmt": { "len": 16, "max": 350, "min": -40, "mul": 0.00703125,             "add": -40, "unit": "fahrenheit" }, "name": "Transmission fluid pan temperature"},
-    {"id": "TOYOTA_TFP_T",     "path": "Transmission", "fmt": { "len": 16, "max": 215, "min": -40,                    "div": 256, "add": -40, "unit": "celsius"    }, "name": "Transmission fluid pan temperature"}
+    {"id": "TOYOTA_TF1_PAN",   "path": "Engine",       "fmt": { "len": 16, "max": 350, "min": -40, "mul": 0.00703125,             "add": -40, "unit": "fahrenheit" }, "name": "Transmission fluid pan temperature"}
   ]},
 { "hdr": "701", "rax": "709", "dbg": true, "cmd": {"22": "1628"}, "freq": 1,
   "signals": [
@@ -485,15 +482,19 @@
     {"id": "TOYOTA_TT_FL",       "path": "Tires", "fmt": {           "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -40, "unit": "celsius" }, "name": "Front left tire temperature",  "suggestedMetric": "frontLeftTireTemperature"},
     {"id": "TOYOTA_TT_FL_V1",    "path": "Tires", "fmt": {           "len": 8, "max": 150, "min": -20, "add": -40,                 "unit": "celsius" }, "name": "Front left tire temperature"},
     {"id": "TOYOTA_TT_1",        "path": "Tires", "fmt": {           "len": 8, "max": 150, "min": -40, "add": -40,                 "unit": "celsius" }, "name": "Front left tire temperature",  "suggestedMetric": "frontLeftTireTemperature"},
+    {"id": "TOYOTA_TT_FL_V2",    "path": "Tires", "fmt": {           "len": 8, "max": 150, "min": -20, "add": -40,                 "unit": "celsius" }, "name": "Front left tire temperature",  "suggestedMetric": "frontLeftTireTemperature"},
     {"id": "TOYOTA_TT_FR",       "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -40, "unit": "celsius" }, "name": "Front right tire temperature", "suggestedMetric": "frontRightTireTemperature"},
     {"id": "TOYOTA_TT_FR_V1",    "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 150, "min": -20, "add": -40,                 "unit": "celsius" }, "name": "Front right tire temperature"},
     {"id": "TOYOTA_TT_2",        "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 150, "min": -40, "add": -40,                 "unit": "celsius" }, "name": "Front right tire temperature", "suggestedMetric": "frontRightTireTemperature"},
+    {"id": "TOYOTA_TT_FR_V2",    "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 150, "min": -20, "add": -40,                 "unit": "celsius" }, "name": "Front right tire temperature", "suggestedMetric": "frontRightTireTemperature"},
     {"id": "TOYOTA_TT_RL",       "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -40, "unit": "celsius" }, "name": "Rear left tire temperature",   "suggestedMetric": "rearLeftTireTemperature"},
     {"id": "TOYOTA_TT_RL_V1",    "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 150, "min": -20, "add": -40,                 "unit": "celsius" }, "name": "Rear left tire temperature"},
     {"id": "TOYOTA_TT_3",        "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 150, "min": -40, "add": -40,                 "unit": "celsius" }, "name": "Rear left tire temperature",   "suggestedMetric": "rearLeftTireTemperature"},
+    {"id": "TOYOTA_TT_RL_V2",    "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 150, "min": -20, "add": -40,                 "unit": "celsius" }, "name": "Rear left tire temperature",   "suggestedMetric": "rearLeftTireTemperature"},
     {"id": "TOYOTA_TT_RR",       "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -40, "unit": "celsius" }, "name": "Rear right tire temperature",  "suggestedMetric": "rearRightTireTemperature"},
     {"id": "TOYOTA_TT_RR_V1",    "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 150, "min": -20, "add": -40,                 "unit": "celsius" }, "name": "Rear right tire temperature"},
     {"id": "TOYOTA_TT_4",        "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 150, "min": -40, "add": -40,                 "unit": "celsius" }, "name": "Rear right tire temperature",  "suggestedMetric": "rearRightTireTemperature"},
+    {"id": "TOYOTA_TT_RR_V2",    "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 150, "min": -20, "add": -40,                 "unit": "celsius" }, "name": "Rear right tire temperature",  "suggestedMetric": "rearRightTireTemperature"},
     {"id": "TOYOTA_TT_SPARE",    "path": "Tires", "fmt": {"bix": 32, "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -40, "unit": "celsius" }, "name": "Spare tire temperature"},
     {"id": "TOYOTA_TT_SPARE_V1", "path": "Tires", "fmt": {"bix": 32, "len": 8, "max": 150, "min": -20, "add": -40,                 "unit": "celsius" }, "name": "Spare tire temperature"},
     {"id": "TOYOTA_TT_5",        "path": "Tires", "fmt": {"bix": 32, "len": 8, "max": 150, "min": -40, "add": -40,                 "unit": "celsius" }, "name": "Spare tire temperature"}
@@ -515,16 +516,16 @@
   "signals": [
     {"id": "TOYOTA_TT_1_V2",     "path": "Tires", "fmt": {           "len": 8, "max": 100, "min": -30, "add": -40, "nullmin": -30, "unit": "celsius" }, "name": "Front right tire temperature"},
     {"id": "TOYOTA_TT_FL_V2",    "path": "Tires", "fmt": {           "len": 8, "max": 215, "min": -40, "add": -40,                 "unit": "celsius" }, "name": "Front left tire temperature"},
-    {"id": "TOYOTA_TT_FL_V2",    "path": "Tires", "fmt": {           "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -30, "unit": "celsius" }, "name": "Front left tire temperature"},
+    {"id": "TOYOTA_TT_FL_V2_V2", "path": "Tires", "fmt": {           "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -30, "unit": "celsius" }, "name": "Front left tire temperature"},
     {"id": "TOYOTA_TT_2_V2",     "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 100, "min": -30, "add": -40, "nullmin": -30, "unit": "celsius" }, "name": "Front left tire temperature"},
     {"id": "TOYOTA_TT_FR_V2",    "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 215, "min": -40, "add": -40,                 "unit": "celsius" }, "name": "Front right tire temperature"},
-    {"id": "TOYOTA_TT_FR_V2",    "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -30, "unit": "celsius" }, "name": "Front right tire temperature"},
+    {"id": "TOYOTA_TT_FR_V2_V2", "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -30, "unit": "celsius" }, "name": "Front right tire temperature"},
     {"id": "TOYOTA_TT_3_V2",     "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 100, "min": -30, "add": -40, "nullmin": -30, "unit": "celsius" }, "name": "Rear right tire temperature"},
     {"id": "TOYOTA_TT_RL_V2",    "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 215, "min": -40, "add": -40,                 "unit": "celsius" }, "name": "Rear left tire temperature"},
-    {"id": "TOYOTA_TT_RL_V2",    "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -30, "unit": "celsius" }, "name": "Rear left tire temperature"},
+    {"id": "TOYOTA_TT_RL_V2_V2", "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -30, "unit": "celsius" }, "name": "Rear left tire temperature"},
     {"id": "TOYOTA_TT_4_V2",     "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 100, "min": -30, "add": -40, "nullmin": -30, "unit": "celsius" }, "name": "Rear left tire temperature"},
     {"id": "TOYOTA_TT_RR_V2",    "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 215, "min": -40, "add": -40,                 "unit": "celsius" }, "name": "Rear right tire temperature"},
-    {"id": "TOYOTA_TT_RR_V2",    "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -30, "unit": "celsius" }, "name": "Rear right tire temperature"},
+    {"id": "TOYOTA_TT_RR_V2_V2", "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -30, "unit": "celsius" }, "name": "Rear right tire temperature"},
     {"id": "TOYOTA_TT_SPARE_V2", "path": "Tires", "fmt": {"bix": 32, "len": 8, "max": 215, "min": -40, "add": -40,                 "unit": "celsius" }, "name": "Spare tire temperature"},
     {"id": "TOYOTA_TT_5_V2",     "path": "Tires", "fmt": {"bix": 32, "len": 8, "max": 100, "min": -30, "add": -40, "nullmin": -30, "unit": "celsius" }, "name": "Spare tire temperature"},
     {"id": "TOYOTA_TT_SPARE_V2", "path": "Tires", "fmt": {"bix": 32, "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -30, "unit": "celsius" }, "name": "Spare tire temperature"}
