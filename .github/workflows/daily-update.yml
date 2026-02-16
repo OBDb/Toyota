@@ -79,10 +79,14 @@ jobs:
         run: |
           echo "## Signal Provenance Report" >> $GITHUB_STEP_SUMMARY
           cat build/signal_provenance_report.md >> $GITHUB_STEP_SUMMARY
-          echo -e "\n\n## Raw JSON Data" >> $GITHUB_STEP_SUMMARY
-          echo '```json' >> $GITHUB_STEP_SUMMARY
-          cat build/signal_provenance_report.json >> $GITHUB_STEP_SUMMARY
-          echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Upload provenance report as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: provenance-report
+          path: |
+            build/signal_provenance_report.md
+            build/signal_provenance_report.json
 
       - name: Checkout schemas repo
         uses: actions/checkout@v4
