@@ -88,10 +88,6 @@
     {"id": "TOYOTA_VGT_CAL_ANGLE",   "path": "Engine", "fmt": {            "len": 16, "max": 1000,    "mul": 156.25, "div": 10000, "unit": "degrees"    }, "name": "Variable geometry turbocharger calibration angle"},
     {"id": "TOYOTA_OIL_CHANGE_DIST", "path": "Fluids", "fmt": {"bix": 304, "len": 32, "max": 1000000,                              "unit": "kilometers" }, "name": "Distance since last oil change"}
   ]},
-{ "hdr": "700", "dbg": true, "cmd": {"22": "1F2F"}, "freq": 30,
-  "signals": [
-    {"id": "TOYOTA_FLI", "path": "Fuel", "fmt": { "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent" }, "name": "Fuel level", "suggestedMetric": "fuelTankLevel"}
-  ]},
 { "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "1002"}, "freq": 1,
   "signals": [
     {"id": "TOYOTA_12V_V", "path": "Battery", "fmt": { "len": 16, "max": 79, "mul": 12.207, "div": 10000, "unit": "volts" }, "name": "Battery voltage", "suggestedMetric": "starterBatteryVoltage"}
@@ -284,6 +280,10 @@
 { "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "1638"}, "freq": 1,
   "signals": [
     {"id": "TOYOTA_ATF_TEMP", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Transmission Fluid Temperature"}
+  ]},
+{ "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "1F2F"}, "freq": 30,
+  "signals": [
+    {"id": "TOYOTA_FLI", "path": "Fuel", "fmt": { "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent" }, "name": "Fuel level", "suggestedMetric": "fuelTankLevel"}
   ]},
 { "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "1F3C"}, "freq": 1,
   "signals": [
