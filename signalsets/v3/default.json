@@ -1087,6 +1087,10 @@
     {"id": "TOYOTA_IGNITION_TRIG_CNT",         "path": "Control",         "fmt": {"bix": 64, "len": 16, "max": 65535,                                                  "unit": "scalar"  }, "name": "Ignition trigger count"},
     {"id": "TOYOTA_MISFIRE_MARGIN_V2",         "path": "Engine.Misfires", "fmt": {"bix": 80, "len": 8,  "max": 127,   "min": -128,                        "add": -128, "unit": "percent" }, "name": "Misfire margin"}
   ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "47"}, "freq": 1,
+  "signals": [
+    {"id": "TOYOTA_EGR_STEP_POSITION", "path": "Engine", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "EGR step position"}
+  ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "51"}, "freq": 1,
   "signals": [
     {"id": "TOYOTA_ENG_START_T",       "path": "Engine",       "fmt": {            "len": 16, "max": 655350,             "mul": 10,                            "unit": "milliseconds" }, "name": "Engine starting time"},
@@ -1126,9 +1130,90 @@
     {"id": "TOYOTA_GEAR_V2",    "path": "Transmission", "fmt": {          "len": 8, "max": 255, "unit": "scalar" }, "name": "Gear, variant"},
     {"id": "TOYOTA_TQC_LOCKUP", "path": "Transmission", "fmt": {"bix": 8, "len": 1, "max": 1,   "unit": "offon"  }, "name": "Torque converter lock-up", "description": "Engages a clutch inside the torque converter to create a direct connection between the engine and transmission, reducing slippage and improving efficiency."}
   ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "C1"}, "freq": 1,
+  "signals": [
+    {"id": "TOYOTA_CYLINDER_NUMBER", "path": "Engine", "fmt": {"bix": 104, "len": 8, "max": 255,                            "unit": "scalar" }, "name": "Cylinder number"},
+    {"id": "TOYOTA_DESTINATION",     "path": "Engine", "fmt": {"bix": 120, "len": 8, "max": 255,                            "unit": "scalar" }, "name": "Destination"},
+    {"id": "TOYOTA_MODEL_YEAR",      "path": "Engine", "fmt": {"bix": 128, "len": 8, "max": 2155, "min": 1900, "add": 1900, "unit": "scalar" }, "name": "Model year"}
+  ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "DA"}, "freq": 1,
   "signals": [
     {"id": "TOYOTA_GEAR_V3", "path": "Transmission", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Current gear"}
+  ]},
+{ "hdr": "7E2", "dbg": true, "cmd": {"21": "C3"}, "freq": 1,
+  "signals": [
+    {"id": "TOYOTA_MG2_RPM",                 "path": "Movement", "fmt": {            "len": 16, "max": 65535,                                          "unit": "rpm"          }, "name": "MG2 rpm"},
+    {"id": "TOYOTA_MG2_TORQUE",              "path": "Engine",   "fmt": {"bix": 16,  "len": 16, "max": 65535,                                          "unit": "newtonMeters" }, "name": "MG2 torque"},
+    {"id": "TOYOTA_MG1_RPM",                 "path": "Movement", "fmt": {"bix": 32,  "len": 16, "max": 65535,                                          "unit": "rpm"          }, "name": "MG1 rpm"},
+    {"id": "TOYOTA_MG1_TORQUE",              "path": "Engine",   "fmt": {"bix": 48,  "len": 16, "max": 65535,                                          "unit": "newtonMeters" }, "name": "MG1 torque"},
+    {"id": "TOYOTA_REQUEST_POWER",           "path": "Engine",   "fmt": {"bix": 64,  "len": 16, "max": 65535,                                          "unit": "kilowatts"    }, "name": "Request power"},
+    {"id": "TOYOTA_STATE_OF_CHARGE",         "path": "Battery",  "fmt": {"bix": 112, "len": 8,  "max": 99.96,                "mul": 0.392,             "unit": "percent"      }, "name": "State of charge",           "suggestedMetric": "stateOfCharge"},
+    {"id": "TOYOTA_MG1_INVERTER_T",          "path": "Engine",   "fmt": {"bix": 160, "len": 8,  "max": 205,      "min": -50,               "add": -50, "unit": "celsius"      }, "name": "MG1 inverter temperature"},
+    {"id": "TOYOTA_MG2_INVERTER_T",          "path": "Engine",   "fmt": {"bix": 168, "len": 8,  "max": 205,      "min": -50,               "add": -50, "unit": "celsius"      }, "name": "MG2 inverter temperature"},
+    {"id": "TOYOTA_MG1_T",                   "path": "Engine",   "fmt": {"bix": 176, "len": 8,  "max": 205,      "min": -50,               "add": -50, "unit": "celsius"      }, "name": "MG1 temperature"},
+    {"id": "TOYOTA_MG2_T",                   "path": "Engine",   "fmt": {"bix": 184, "len": 8,  "max": 205,      "min": -50,               "add": -50, "unit": "celsius"      }, "name": "MG2 temperature"},
+    {"id": "TOYOTA_POWER_RESOURCE_KW",       "path": "Engine",   "fmt": {"bix": 192, "len": 24, "max": 16777215,                                       "unit": "kilowatts"    }, "name": "Power resource KW"},
+    {"id": "TOYOTA_REGENERATIVE_BRAKE_TORQ", "path": "Engine",   "fmt": {"bix": 240, "len": 8,  "max": 1020,                 "mul": 4,                 "unit": "newtonMeters" }, "name": "Regenerative brake torque"}
+  ]},
+{ "hdr": "7E2", "dbg": true, "cmd": {"21": "C4"}, "freq": 1,
+  "signals": [
+    {"id": "TOYOTA_MGR_RPM",                 "path": "Movement", "fmt": {"bix": 16,  "len": 16, "max": 65535,                                   "unit": "rpm"          }, "name": "MGR rpm"},
+    {"id": "TOYOTA_MGR_TORQUE",              "path": "Engine",   "fmt": {"bix": 32,  "len": 16, "max": 65535,                                   "unit": "newtonMeters" }, "name": "MGR torque"},
+    {"id": "TOYOTA_MGR_INVERTER_T",          "path": "Engine",   "fmt": {"bix": 48,  "len": 8,  "max": 205,   "min": -50,           "add": -50, "unit": "celsius"      }, "name": "MGR inverter temperature"},
+    {"id": "TOYOTA_MGR_T",                   "path": "Engine",   "fmt": {"bix": 56,  "len": 8,  "max": 205,   "min": -50,           "add": -50, "unit": "celsius"      }, "name": "MGR temperature"},
+    {"id": "TOYOTA_REAR_TORQUE_RATIO",       "path": "Engine",   "fmt": {"bix": 64,  "len": 16, "max": 65535,                                   "unit": "percent"      }, "name": "Rear torque ratio"},
+    {"id": "TOYOTA_VL_VAGE_BEFORE_BOOSTING", "path": "Engine",   "fmt": {"bix": 88,  "len": 8,  "max": 510,               "mul": 2,             "unit": "volts"        }, "name": "Vl-vage before boosting"},
+    {"id": "TOYOTA_VH_VAGE_AFTER_BOOSTING",  "path": "Engine",   "fmt": {"bix": 96,  "len": 8,  "max": 765,               "mul": 3,             "unit": "volts"        }, "name": "Vh-vage after boosting"},
+    {"id": "TOYOTA_CONVERTER_T",             "path": "Engine",   "fmt": {"bix": 104, "len": 8,  "max": 205,   "min": -50,           "add": -50, "unit": "celsius"      }, "name": "Converter temperature"},
+    {"id": "TOYOTA_REAR_REGEN_BRAKE_TORQ",   "path": "Engine",   "fmt": {"bix": 192, "len": 8,  "max": 1020,              "mul": 4,             "unit": "newtonMeters" }, "name": "Rear regen brake torque"}
+  ]},
+{ "hdr": "7E2", "dbg": true, "cmd": {"21": "CE"}, "freq": 1,
+  "signals": [
+    {"id": "TOYOTA_BATT_PACK_CUR_VAL",     "path": "Engine",  "fmt": {"bix": 8,   "len": 16, "max": 65535, "unit": "scalar" }, "name": "Battery pack, current value"},
+    {"id": "TOYOTA_BATTERY_BLOCK_VOL_V01", "path": "Battery", "fmt": {"bix": 24,  "len": 16, "max": 65535, "unit": "volts"  }, "name": "Battery block vol -V01"},
+    {"id": "TOYOTA_BATTERY_BLOCK_VOL_V02", "path": "Battery", "fmt": {"bix": 40,  "len": 16, "max": 65535, "unit": "volts"  }, "name": "Battery block vol -V02"},
+    {"id": "TOYOTA_BATTERY_BLOCK_VOL_V03", "path": "Battery", "fmt": {"bix": 56,  "len": 16, "max": 65535, "unit": "volts"  }, "name": "Battery block vol -V03"},
+    {"id": "TOYOTA_BATTERY_BLOCK_VOL_V04", "path": "Battery", "fmt": {"bix": 72,  "len": 16, "max": 65535, "unit": "volts"  }, "name": "Battery block vol -V04"},
+    {"id": "TOYOTA_BATTERY_BLOCK_VOL_V05", "path": "Battery", "fmt": {"bix": 88,  "len": 16, "max": 65535, "unit": "volts"  }, "name": "Battery block vol -V05"},
+    {"id": "TOYOTA_BATTERY_BLOCK_VOL_V06", "path": "Battery", "fmt": {"bix": 104, "len": 16, "max": 65535, "unit": "volts"  }, "name": "Battery block vol -V06"},
+    {"id": "TOYOTA_BATTERY_BLOCK_VOL_V07", "path": "Battery", "fmt": {"bix": 120, "len": 16, "max": 65535, "unit": "volts"  }, "name": "Battery block vol -V07"},
+    {"id": "TOYOTA_BATTERY_BLOCK_VOL_V08", "path": "Battery", "fmt": {"bix": 136, "len": 16, "max": 65535, "unit": "volts"  }, "name": "Battery block vol -V08"},
+    {"id": "TOYOTA_BATTERY_BLOCK_VOL_V09", "path": "Battery", "fmt": {"bix": 152, "len": 16, "max": 65535, "unit": "volts"  }, "name": "Battery block vol -V09"},
+    {"id": "TOYOTA_BATTERY_BLOCK_VOL_V10", "path": "Battery", "fmt": {"bix": 168, "len": 16, "max": 65535, "unit": "volts"  }, "name": "Battery block vol -V10"},
+    {"id": "TOYOTA_BATTERY_BLOCK_VOL_V11", "path": "Battery", "fmt": {"bix": 184, "len": 16, "max": 65535, "unit": "volts"  }, "name": "Battery block vol -V11"},
+    {"id": "TOYOTA_BATTERY_BLOCK_VOL_V12", "path": "Battery", "fmt": {"bix": 200, "len": 16, "max": 65535, "unit": "volts"  }, "name": "Battery block vol -V12"},
+    {"id": "TOYOTA_BATTERY_BLOCK_VOL_V13", "path": "Battery", "fmt": {"bix": 216, "len": 16, "max": 65535, "unit": "volts"  }, "name": "Battery block vol -V13"},
+    {"id": "TOYOTA_BATTERY_BLOCK_VOL_V14", "path": "Battery", "fmt": {"bix": 232, "len": 16, "max": 65535, "unit": "volts"  }, "name": "Battery block vol -V14"},
+    {"id": "TOYOTA_BATTERY_BLOCK_VOL_V15", "path": "Battery", "fmt": {"bix": 248, "len": 16, "max": 65535, "unit": "volts"  }, "name": "Battery block vol -V15"}
+  ]},
+{ "hdr": "7E2", "dbg": true, "cmd": {"21": "CF"}, "freq": 1,
+  "signals": [
+    {"id": "TOYOTA_TEMPERATURE_OF_BATT_TB1", "path": "Engine", "fmt": {"bix": 64,  "len": 16, "max": 65535, "unit": "celsius" }, "name": "Temperature of battery 1"},
+    {"id": "TOYOTA_TEMPERATURE_OF_BATT_TB2", "path": "Engine", "fmt": {"bix": 80,  "len": 16, "max": 65535, "unit": "celsius" }, "name": "Temperature of battery 2"},
+    {"id": "TOYOTA_TEMPERATURE_OF_BATT_TB3", "path": "Engine", "fmt": {"bix": 96,  "len": 16, "max": 65535, "unit": "celsius" }, "name": "Temperature of battery 3"},
+    {"id": "TOYOTA_TEMPERATURE_OF_BATT_TB4", "path": "Engine", "fmt": {"bix": 112, "len": 16, "max": 65535, "unit": "celsius" }, "name": "Temperature of battery 4"},
+    {"id": "TOYOTA_TEMPERATURE_OF_BATT_TB5", "path": "Engine", "fmt": {"bix": 128, "len": 16, "max": 65535, "unit": "celsius" }, "name": "Temperature of battery 5"},
+    {"id": "TOYOTA_TEMPERATURE_OF_BATT_TB6", "path": "Engine", "fmt": {"bix": 144, "len": 16, "max": 65535, "unit": "celsius" }, "name": "Temperature of battery 6"},
+    {"id": "TOYOTA_TEMPERATURE_OF_BATT_TB7", "path": "Engine", "fmt": {"bix": 160, "len": 16, "max": 65535, "unit": "celsius" }, "name": "Temperature of battery 7"},
+    {"id": "TOYOTA_TEMPERATURE_OF_BATT_TB8", "path": "Engine", "fmt": {"bix": 176, "len": 16, "max": 65535, "unit": "celsius" }, "name": "Temperature of battery 8"}
+  ]},
+{ "hdr": "7E2", "dbg": true, "cmd": {"21": "D0"}, "freq": 1,
+  "signals": [
+    {"id": "TOYOTA_INTERNAL_RESISTANCE_R01", "path": "Engine", "fmt": {"bix": 120, "len": 8, "max": 255, "unit": "megaohms" }, "name": "Internal resistance 1"},
+    {"id": "TOYOTA_INTERNAL_RESISTANCE_R02", "path": "Engine", "fmt": {"bix": 128, "len": 8, "max": 255, "unit": "megaohms" }, "name": "Internal resistance 2"},
+    {"id": "TOYOTA_INTERNAL_RESISTANCE_R03", "path": "Engine", "fmt": {"bix": 136, "len": 8, "max": 255, "unit": "megaohms" }, "name": "Internal resistance 3"},
+    {"id": "TOYOTA_INTERNAL_RESISTANCE_R04", "path": "Engine", "fmt": {"bix": 144, "len": 8, "max": 255, "unit": "megaohms" }, "name": "Internal resistance 4"},
+    {"id": "TOYOTA_INTERNAL_RESISTANCE_R05", "path": "Engine", "fmt": {"bix": 152, "len": 8, "max": 255, "unit": "megaohms" }, "name": "Internal resistance 5"},
+    {"id": "TOYOTA_INTERNAL_RESISTANCE_R06", "path": "Engine", "fmt": {"bix": 160, "len": 8, "max": 255, "unit": "megaohms" }, "name": "Internal resistance 6"},
+    {"id": "TOYOTA_INTERNAL_RESISTANCE_R07", "path": "Engine", "fmt": {"bix": 168, "len": 8, "max": 255, "unit": "megaohms" }, "name": "Internal resistance 7"},
+    {"id": "TOYOTA_INTERNAL_RESISTANCE_R08", "path": "Engine", "fmt": {"bix": 176, "len": 8, "max": 255, "unit": "megaohms" }, "name": "Internal resistance 8"},
+    {"id": "TOYOTA_INTERNAL_RESISTANCE_R09", "path": "Engine", "fmt": {"bix": 184, "len": 8, "max": 255, "unit": "megaohms" }, "name": "Internal resistance 9"},
+    {"id": "TOYOTA_INTERNAL_RESISTANCE_R10", "path": "Engine", "fmt": {"bix": 192, "len": 8, "max": 255, "unit": "megaohms" }, "name": "Internal resistance 10"},
+    {"id": "TOYOTA_INTERNAL_RESISTANCE_R11", "path": "Engine", "fmt": {"bix": 200, "len": 8, "max": 255, "unit": "megaohms" }, "name": "Internal resistance 11"},
+    {"id": "TOYOTA_INTERNAL_RESISTANCE_R12", "path": "Engine", "fmt": {"bix": 208, "len": 8, "max": 255, "unit": "megaohms" }, "name": "Internal resistance 12"},
+    {"id": "TOYOTA_INTERNAL_RESISTANCE_R13", "path": "Engine", "fmt": {"bix": 216, "len": 8, "max": 255, "unit": "megaohms" }, "name": "Internal resistance 13"},
+    {"id": "TOYOTA_INTERNAL_RESISTANCE_R14", "path": "Engine", "fmt": {"bix": 224, "len": 8, "max": 255, "unit": "megaohms" }, "name": "Internal resistance 14"},
+    {"id": "TOYOTA_INTERNAL_RESISTANCE_R15", "path": "Engine", "fmt": {"bix": 232, "len": 8, "max": 255, "unit": "megaohms" }, "name": "Internal resistance 15"}
   ]}
 ]
 }
