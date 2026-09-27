@@ -1,7 +1,8 @@
 { "ecu": [
     { "hdr": "750", "eax": "2A", "type": "tpms" },
     { "hdr": "7E0",              "type": "engine" },
-    { "hdr": "7E2",              "type": "hybridControl" }
+    { "hdr": "7E2",              "type": "hybridControl" },
+    { "hdr": "7E3",              "type": "battery" }
   ],
   "commands": [
 { "hdr": "6F1", "eax": "40", "fcm1": true, "dbg": true, "cmd": {"22": "1700"}, "freq": 1,
