@@ -628,17 +628,19 @@
     {"id": "TOYOTA_ODO_V6", "path": "Trips", "fmt": {"bix": 8, "len": 24, "max": 16777215,                      "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"},
     {"id": "TOYOTA_ODO_V2", "path": "Trips", "fmt": {"bix": 8, "len": 24, "max": 16777215, "nullmax": 16777215, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"}
   ]},
-{ "hdr": "747", "rax": "74F", "dbg": true, "cmd": {"22": "106E"}, "freq": 1,
+{ "hdr": "747", "rax": "74F", "dbg": true, "cmd": {"22": "106E"}, "freq": 5,
   "signals": [
-    {"id": "TOYOTA_AC_POWER_CONS_747", "path": "Engine", "fmt": { "len": 8, "max": -12500, "min": -12500, "div": 2000, "add": -12500, "unit": "kilowatts" }, "name": "Air conditioning power consumption"}
+    {"id": "TOYOTA_AC_P_747",          "path": "Climate", "fmt": { "len": 8, "max": 12.75,                 "div": 20,                  "unit": "kilowatts" }, "name": "Air conditioning power consumption"},
+    {"id": "TOYOTA_AC_POWER_CONS_747", "path": "Engine",  "fmt": { "len": 8, "max": -12500, "min": -12500, "div": 2000, "add": -12500, "unit": "kilowatts" }, "name": "Air conditioning power consumption"}
   ]},
-{ "hdr": "747", "rax": "74F", "dbg": true, "cmd": {"22": "1802"}, "freq": 1,
+{ "hdr": "747", "rax": "74F", "dbg": true, "cmd": {"22": "1802"}, "freq": 5,
   "signals": [
-    {"id": "TOYOTA_HYBRID_BAT_1_FAN_747", "path": "Battery", "fmt": {"bix": 16, "len": 8, "max": 127, "div": 2, "unit": "percent" }, "name": "Hybrid battery 1 fan"}
+    {"id": "TOYOTA_HVBAT_FAN_V2",         "path": "Battery", "fmt": {"bix": 16, "len": 8, "max": 127.5, "div": 2, "unit": "percent" }, "name": "Hybrid battery fan"},
+    {"id": "TOYOTA_HYBRID_BAT_1_FAN_747", "path": "Battery", "fmt": {"bix": 16, "len": 8, "max": 127,   "div": 2, "unit": "percent" }, "name": "Hybrid battery 1 fan"}
   ]},
 { "hdr": "747", "rax": "74F", "dbg": true, "cmd": {"22": "180B"}, "freq": 5,
   "signals": [
-    {"id": "TOYOTA_HYBRID_BAT_IAT_1", "path": "Battery", "fmt": {           "len": 16, "max": 400, "min": -58, "mul": 458, "div": 65535, "add": -58, "unit": "fahrenheit" }, "name": "Hybrid battery intake air temperature 1"},
+    {"id": "TOYOTA_HVBAT_IAT_V2",     "path": "Battery", "fmt": {           "len": 16, "max": 400, "min": -58, "mul": 458, "div": 65535, "add": -58, "unit": "fahrenheit" }, "name": "Hybrid battery intake air temperature"},
     {"id": "TOYOTA_HYBRID_BAT_IAT_2", "path": "Battery", "fmt": {"bix": 16, "len": 16, "max": 400, "min": -58, "mul": 458, "div": 65535, "add": -58, "unit": "fahrenheit" }, "name": "Hybrid battery intake air temperature 2"}
   ]},
 { "hdr": "747", "rax": "74F", "dbg": true, "cmd": {"22": "1814"}, "freq": 5,
@@ -662,10 +664,10 @@
   ]},
 { "hdr": "747", "rax": "74F", "dbg": true, "cmd": {"22": "1819"}, "freq": 1,
   "signals": [
-    {"id": "TOYOTA_HYBRID_BAT_BLOCK_1_V", "path": "Battery", "fmt": {           "len": 16, "max": 4.99, "mul": 5, "div": 65536, "unit": "fahrenheit" }, "name": "Hybrid battery block 1 average voltage"},
-    {"id": "TOYOTA_HYBRID_BAT_BLOCK_2_V", "path": "Battery", "fmt": {"bix": 16, "len": 16, "max": 4.99, "mul": 5, "div": 65536, "unit": "fahrenheit" }, "name": "Hybrid battery block 2 average voltage"},
-    {"id": "TOYOTA_HYBRID_BAT_BLOCK_3_V", "path": "Battery", "fmt": {"bix": 32, "len": 16, "max": 4.99, "mul": 5, "div": 65536, "unit": "fahrenheit" }, "name": "Hybrid battery block 3 average voltage"},
-    {"id": "TOYOTA_HYBRID_BAT_BLOCK_4_V", "path": "Battery", "fmt": {"bix": 48, "len": 16, "max": 4.99, "mul": 5, "div": 65536, "unit": "fahrenheit" }, "name": "Hybrid battery block 4 average voltage"},
+    {"id": "TOYOTA_HYBRID_BAT_BLOCK_1_V", "path": "Battery", "fmt": {           "len": 16, "max": 4.99, "mul": 5, "div": 65536, "unit": "volts"      }, "name": "Hybrid battery block 1 average voltage"},
+    {"id": "TOYOTA_HYBRID_BAT_BLOCK_2_V", "path": "Battery", "fmt": {"bix": 16, "len": 16, "max": 4.99, "mul": 5, "div": 65536, "unit": "volts"      }, "name": "Hybrid battery block 2 average voltage"},
+    {"id": "TOYOTA_HYBRID_BAT_BLOCK_3_V", "path": "Battery", "fmt": {"bix": 32, "len": 16, "max": 4.99, "mul": 5, "div": 65536, "unit": "volts"      }, "name": "Hybrid battery block 3 average voltage"},
+    {"id": "TOYOTA_HYBRID_BAT_BLOCK_4_V", "path": "Battery", "fmt": {"bix": 48, "len": 16, "max": 4.99, "mul": 5, "div": 65536, "unit": "volts"      }, "name": "Hybrid battery block 4 average voltage"},
     {"id": "TOYOTA_HYBRID_BAT_BLOCK_5_V", "path": "Battery", "fmt": {"bix": 64, "len": 16, "max": 4.99, "mul": 5, "div": 65536, "unit": "fahrenheit" }, "name": "Hybrid battery block 5 average voltage"}
   ]},
 { "hdr": "747", "rax": "74F", "dbg": true, "cmd": {"22": "1824"}, "freq": 5,
@@ -788,14 +790,14 @@
     {"id": "TOYOTA_CAP_7", "path": "Battery", "fmt": {"bix": 96,  "len": 16, "max": 655.35, "div": 100, "unit": "ampereHours" }, "name": "Full charge capacity 7"},
     {"id": "TOYOTA_CAP_8", "path": "Battery", "fmt": {"bix": 112, "len": 16, "max": 655.35, "div": 100, "unit": "ampereHours" }, "name": "Full charge capacity 8"}
   ]},
-{ "hdr": "747", "rax": "74F", "dbg": true, "cmd": {"22": "1F5B"}, "freq": 1,
+{ "hdr": "747", "rax": "74F", "fcm1": true, "dbg": true, "cmd": {"22": "1F5B"}, "freq": 10,
   "signals": [
-    {"id": "TOYOTA_HYBRID_BAT_SOC", "path": "Battery", "fmt": { "len": 8, "max": 100, "mul": 20, "div": 51,   "unit": "percent" }, "name": "Hybrid battery SOC"},
-    {"id": "TOYOTA_SOC_747",        "path": "Battery", "fmt": { "len": 8, "max": 100,            "div": 2.55, "unit": "percent" }, "name": "State of charge, battery ECU"}
+    {"id": "TOYOTA_SOC_747",        "path": "Battery", "fmt": { "len": 8, "max": 100,            "div": 2.55, "unit": "percent" }, "name": "State of charge, battery ECU"},
+    {"id": "TOYOTA_HYBRID_BAT_SOC", "path": "Battery", "fmt": { "len": 8, "max": 100, "mul": 20, "div": 51,   "unit": "percent" }, "name": "Hybrid battery SOC"}
   ]},
 { "hdr": "747", "rax": "74F", "dbg": true, "cmd": {"22": "1F9A"}, "freq": 1,
   "signals": [
-    {"id": "TOYOTA_HYBRID_BAT_CURRENT", "path": "Battery", "fmt": {"bix": 32, "len": 16, "max": 6553, "div": 10, "unit": "amps" }, "name": "Hybrid battery current"}
+    {"id": "TOYOTA_HYBRID_BAT_CURRENT", "path": "Battery", "fmt": {"bix": 32, "len": 16, "max": 3276.7, "min": -3276.8, "div": 10, "sign": true, "unit": "amps" }, "name": "Hybrid battery current"}
   ]},
 { "hdr": "747", "rax": "74F", "dbg": true, "cmd": {"22": "F19A"}, "freq": 5,
   "signals": [
@@ -1536,7 +1538,8 @@
   ]},
 { "hdr": "7C4", "rax": "7CC", "dbg": true, "cmd": {"21": "26"}, "freq": 5,
   "signals": [
-    {"id": "TOYOTA_ECT", "path": "Engine", "fmt": { "len": 8, "max": 90.55, "min": 1.3, "mul": 89.25, "div": 255, "add": 1.3, "unit": "celsius" }, "name": "Engine coolant temperature", "suggestedMetric": "engineCoolantTemperature"}
+    {"id": "TOYOTA_ECT",   "path": "Engine", "fmt": { "len": 8, "max": 90.55, "min": 1.3, "mul": 89.25, "div": 255, "add": 1.3, "unit": "celsius" }, "name": "Engine coolant temperature", "suggestedMetric": "engineCoolantTemperature"},
+    {"id": "TOYOTA_AC_CT", "path": "Engine", "fmt": { "len": 8, "max": 90.55, "min": 1.3, "mul": 89.25, "div": 255, "add": 1.3, "unit": "celsius" }, "name": "Coolant temperature"}
   ]},
 { "hdr": "7C4", "rax": "7CC", "dbg": true, "cmd": {"21": "29"}, "freq": 5,
   "signals": [
@@ -1609,11 +1612,12 @@
   ]},
 { "hdr": "7D2", "rax": "7DA", "fcm1": true, "dbg": true, "cmd": {"22": "0103"}, "freq": 10,
   "signals": [
-    {"id": "TOYOTA_ODO_V2_V2", "path": "Trips", "fmt": {"bix": 8, "len": 24, "max": 16777215, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"}
+    {"id": "TOYOTA_ODO_V2_V2", "path": "Trips", "fmt": {"bix": 8, "len": 24, "max": 16777215,                      "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"},
+    {"id": "TOYOTA_ODO_V2",    "path": "Trips", "fmt": {"bix": 8, "len": 24, "max": 16777215, "nullmax": 16777215, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "1002"}, "freq": 5,
   "signals": [
-    {"id": "TOYOTA_AUX_BAT_V", "path": "Battery", "fmt": { "len": 16, "max": 79.95, "mul": 61, "div": 50000, "unit": "volts" }, "name": "Aux battery voltage"}
+    {"id": "TOYOTA_AUX_BAT_V", "path": "Battery", "fmt": { "len": 16, "max": 79.95, "mul": 61, "div": 50000, "unit": "volts" }, "name": "Auxiliary battery voltage"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "fcm1": true, "dbg": true, "cmd": {"22": "1004"}, "freq": 5,
   "signals": [
@@ -1735,8 +1739,8 @@
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "10B0"}, "freq": 1,
   "signals": [
-    {"id": "TOYOTA_VL_V_BEFORE_BOOSTING", "path": "Battery", "fmt": {           "len": 16, "max": 32767, "div": 2, "unit": "volts" }, "name": "Vl-voltage before boosting"},
-    {"id": "TOYOTA_VH_V_AFTER_BOOSTING",  "path": "Battery", "fmt": {"bix": 16, "len": 16, "max": 32767, "div": 2, "unit": "volts" }, "name": "Vh-voltage after boosting"}
+    {"id": "TOYOTA_VL_V_BEFORE_BOOSTING", "path": "Battery", "fmt": {           "len": 16, "max": 32767, "div": 2, "unit": "volts" }, "name": "Boost converter voltage before boosting"},
+    {"id": "TOYOTA_VH_V_AFTER_BOOSTING",  "path": "Battery", "fmt": {"bix": 16, "len": 16, "max": 32767, "div": 2, "unit": "volts" }, "name": "Boost converter voltage after boosting"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "10B2"}, "freq": 1,
   "signals": [
@@ -1774,7 +1778,7 @@
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "15EE"}, "freq": 1,
   "signals": [
-    {"id": "TOYOTA_12V_V_V2", "path": "Battery", "fmt": { "len": 8, "max": 80.2, "mul": 0.31448, "add": 0.0125, "unit": "volts" }, "name": "12V battery voltage", "suggestedMetric": "starterBatteryVoltage"}
+    {"id": "TOYOTA_12V_V_7D2", "path": "Battery", "fmt": { "len": 8, "max": 80.2, "mul": 0.31448, "add": 0.0125, "unit": "volts" }, "name": "12V battery voltage", "suggestedMetric": "starterBatteryVoltage"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "15F7"}, "freq": 0.5,
   "signals": [
@@ -1821,7 +1825,7 @@
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "1F46"}, "freq": 1,
   "signals": [
-    {"id": "TOYOTA_AAT_7D2", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -40, "unit": "celsius" }, "name": "Ambient temperature"}
+    {"id": "TOYOTA_AAT_V2", "path": "Engine", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -40, "unit": "celsius" }, "name": "Ambient temperature"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "1F49"}, "freq": 1,
   "signals": [
@@ -1837,12 +1841,13 @@
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "1F9A"}, "freq": 0.5,
   "signals": [
-    {"id": "TOYOTA_HVBAT_V", "path": "Battery", "fmt": {"bix": 16, "len": 16, "max": 1023,                   "mul": 156.25, "div": 10000,               "unit": "volts" }, "name": "HV battery voltage", "suggestedMetric": "tractionBatteryVoltage"},
-    {"id": "TOYOTA_HVBAT_C", "path": "Battery", "fmt": {"bix": 32, "len": 16, "max": 3276.7, "min": -3276.8,                "div": 10,    "sign": true, "unit": "amps"  }, "name": "HV battery current", "suggestedMetric": "tractionBatteryCurrent"}
+    {"id": "TOYOTA_HVBAT_V", "path": "Battery", "fmt": {"bix": 16, "len": 16, "max": 1023,                   "mul": 156.25, "div": 10000,               "unit": "volts" }, "name": "HV battery voltage"},
+    {"id": "TOYOTA_HVBAT_C", "path": "Battery", "fmt": {"bix": 32, "len": 16, "max": 3276.7, "min": -3276.8,                "div": 10,    "sign": true, "unit": "amps"  }, "name": "HV battery current"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "fcm1": true, "dbg": true, "cmd": {"22": "1FA6"}, "freq": 10,
   "signals": [
-    {"id": "TOYOTA_ODO_1FA6", "path": "Trips", "fmt": { "len": 32, "max": 429496729.5, "div": 10, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"}
+    {"id": "TOYOTA_ODO_1FA6",  "path": "Trips", "fmt": { "len": 32, "max": 429496729.5, "div": 10, "unit": "kilometers" }, "name": "Odometer",         "suggestedMetric": "odometer"},
+    {"id": "TOYOTA_DIST_1FA6", "path": "Trips", "fmt": { "len": 32, "max": 429496729.5, "div": 10, "unit": "kilometers" }, "name": "Distance counter"}
   ]},
 { "hdr": "7D2", "rax": "7DA", "dbg": true, "cmd": {"22": "F19A"}, "freq": 5,
   "signals": [
@@ -1853,8 +1858,7 @@
     {"id": "TOYOTA_LOAD",                         "path": "Engine",   "fmt": {            "len": 8,  "max": 100,                  "mul": 100, "div": 255,               "unit": "percent"           }, "name": "Calculated load",                   "suggestedMetric": "engineLoad"},
     {"id": "TOYOTA_LOAD_V2",                      "path": "Engine",   "fmt": {            "len": 8,  "max": 100,                  "mul": 100, "div": 255,               "unit": "percent"           }, "name": "Calculated load",                   "suggestedMetric": "engineLoad"},
     {"id": "TOYOTA_CALCULATED_LOAD_7E0",          "path": "Engine",   "fmt": {            "len": 8,  "max": 100,                  "mul": 100, "div": 255,               "unit": "percent"           }, "name": "Calculated load"},
-    {"id": "TOYOTA_VEHICLE_LOAD_V2",              "path": "Engine",   "fmt": {"bix": 8,   "len": 16, "max": 100,                  "mul": 100, "div": 65535,             "unit": "percent"           }, "name": "Vehicle load"},
-    {"id": "TOYOTA_VEHICLE_LOAD",                 "path": "Engine",   "fmt": {"bix": 8,   "len": 16, "max": 25700,                "mul": 100, "div": 255,               "unit": "percent"           }, "name": "Vehicle load"},
+    {"id": "TOYOTA_VEHICLE_LOAD",                 "path": "Engine",   "fmt": {"bix": 8,   "len": 16, "max": 100,                  "mul": 100, "div": 65535,             "unit": "percent"           }, "name": "Vehicle load"},
     {"id": "TOYOTA_MAF",                          "path": "Engine",   "fmt": {"bix": 24,  "len": 16, "max": 655.35,                           "div": 100,               "unit": "gramsPerSecond"    }, "name": "Mass air flow",                     "suggestedMetric": "massAirFlow"},
     {"id": "TOYOTA_MAF_V2",                       "path": "Engine",   "fmt": {"bix": 24,  "len": 16, "max": 655.35,                           "div": 100,               "unit": "gramsPerSecond"    }, "name": "Mass air flow",                     "suggestedMetric": "massAirFlow"},
     {"id": "TOYOTA_IAT",                          "path": "Engine",   "fmt": {"bix": 40,  "len": 8,  "max": 215,      "min": -40,                           "add": -40, "unit": "celsius"           }, "name": "Intake air temperature"},
@@ -2851,6 +2855,7 @@
     {"id": "TOYOTA_BAT_BLOCK_V_V13",     "path": "Battery", "fmt": {"bix": 192, "len": 16, "max": 79.99,             "mul": 0.0012205692,                             "unit": "volts"  }, "name": "Battery block 13 voltage"},
     {"id": "TOYOTA_BAT_BLOCK_V_V14",     "path": "Battery", "fmt": {"bix": 208, "len": 16, "max": 79.99,             "mul": 0.0012205692,                             "unit": "volts"  }, "name": "Battery block 14 voltage"},
     {"id": "TOYOTA_AUXILIARY_BAT_V",     "path": "Battery", "fmt": {"bix": 224, "len": 16, "max": 39.9,  "min": -40, "mul": 47,           "div": 38550,   "add": -40, "unit": "volts"  }, "name": "Auxiliary battery voltage"},
+    {"id": "TOYOTA_BAT_BLOCK_V_V15",     "path": "Battery", "fmt": {"bix": 224, "len": 16, "max": 79.99,             "mul": 0.0012205692,                             "unit": "volts"  }, "name": "Battery block 15 voltage"},
     {"id": "TOYOTA_BAT_BLOCK_V_V16",     "path": "Battery", "fmt": {"bix": 240, "len": 16, "max": 6553,                                   "div": 10,                  "unit": "volts"  }, "name": "Battery block 16 voltage"},
     {"id": "TOYOTA_BAT_BLOCK_V_V17",     "path": "Battery", "fmt": {"bix": 256, "len": 16, "max": 79.99,             "mul": 7999,         "div": 6553500,             "unit": "volts"  }, "name": "Battery block 17 voltage"}
   ]},
