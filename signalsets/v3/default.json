@@ -3140,6 +3140,22 @@
     {"id": "TOYOTA_HVBAT_BLOCK_12_R",      "path": "Battery", "fmt": {"bix": 208, "len": 8,  "max": 255,                                                "unit": "milliohms" }, "name": "HV battery block 12 internal resistance"},
     {"id": "TOYOTA_HVBAT_BLOCK_13_R",      "path": "Battery", "fmt": {"bix": 216, "len": 8,  "max": 255,                                                "unit": "milliohms" }, "name": "HV battery block 13 internal resistance"},
     {"id": "TOYOTA_HVBAT_BLOCK_14_R",      "path": "Battery", "fmt": {"bix": 224, "len": 8,  "max": 255,                                                "unit": "milliohms" }, "name": "HV battery block 14 internal resistance"}
+  ]},
+{ "hdr": "812A", "proto": "14230", "baud": 9600, "init": { "lo": 35, "hi": 15 }, "dbg": true, "cmd": {"21": "15"}, "freq": 15,
+  "signals": [
+    {"id": "TOYOTA_TP_1_KL", "path": "Tires", "fmt": {           "len": 8, "max": 4.39875, "mul": 69, "div": 4000, "nullmin": 0, "unit": "bars" }, "name": "Tire pressure, sensor 1"},
+    {"id": "TOYOTA_TP_2_KL", "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 4.39875, "mul": 69, "div": 4000, "nullmin": 0, "unit": "bars" }, "name": "Tire pressure, sensor 2"},
+    {"id": "TOYOTA_TP_3_KL", "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 4.39875, "mul": 69, "div": 4000, "nullmin": 0, "unit": "bars" }, "name": "Tire pressure, sensor 3"},
+    {"id": "TOYOTA_TP_4_KL", "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 4.39875, "mul": 69, "div": 4000, "nullmin": 0, "unit": "bars" }, "name": "Tire pressure, sensor 4"},
+    {"id": "TOYOTA_TP_5_KL", "path": "Tires", "fmt": {"bix": 32, "len": 8, "max": 4.39875, "mul": 69, "div": 4000, "nullmin": 0, "unit": "bars" }, "name": "Tire pressure, sensor 5"}
+  ]},
+{ "hdr": "812A", "proto": "14230", "baud": 9600, "init": { "lo": 35, "hi": 15 }, "dbg": true, "cmd": {"21": "16"}, "freq": 15,
+  "signals": [
+    {"id": "TOYOTA_TT_1_KL", "path": "Tires", "fmt": {           "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -40, "nullmax": 215, "unit": "celsius" }, "name": "Tire temperature, sensor 1"},
+    {"id": "TOYOTA_TT_2_KL", "path": "Tires", "fmt": {"bix": 8,  "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -40, "nullmax": 215, "unit": "celsius" }, "name": "Tire temperature, sensor 2"},
+    {"id": "TOYOTA_TT_3_KL", "path": "Tires", "fmt": {"bix": 16, "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -40, "nullmax": 215, "unit": "celsius" }, "name": "Tire temperature, sensor 3"},
+    {"id": "TOYOTA_TT_4_KL", "path": "Tires", "fmt": {"bix": 24, "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -40, "nullmax": 215, "unit": "celsius" }, "name": "Tire temperature, sensor 4"},
+    {"id": "TOYOTA_TT_5_KL", "path": "Tires", "fmt": {"bix": 32, "len": 8, "max": 215, "min": -40, "add": -40, "nullmin": -40, "nullmax": 215, "unit": "celsius" }, "name": "Tire temperature, sensor 5"}
   ]}
 ]
 }
