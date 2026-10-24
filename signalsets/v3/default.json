@@ -1882,6 +1882,7 @@
     {"id": "TOYOTA_RPM_7E0_G3",                  "path": "Movement", "fmt": {"bix": 72,  "len": 16, "max": 16383.75,                         "div": 4,                 "unit": "rpm"               }, "name": "Engine speed",                      "suggestedMetric": "engineSpeed"},
     {"id": "TOYOTA_VSS_7E0",                     "path": "Movement", "fmt": {"bix": 80,  "len": 8,  "max": 255,                                                        "unit": "kilometersPerHour" }, "name": "Vehicle speed",                     "suggestedMetric": "speed"},
     {"id": "TOYOTA_ENGINE_SPEED_V3",             "path": "Movement", "fmt": {"bix": 80,  "len": 16, "max": 16383,                                                      "unit": "rpm"               }, "name": "Engine speed"},
+    {"id": "TOYOTA_VEHICLE_SPEED_V2",            "path": "Movement", "fmt": {"bix": 80,  "len": 8,  "max": 255,                                                        "unit": "kilometersPerHour" }, "name": "Vehicle speed"},
     {"id": "TOYOTA_ENGINE_SPEED_7E0_V2",         "path": "Engine",   "fmt": {"bix": 80,  "len": 16, "max": 16383.75,                         "div": 4,                 "unit": "rpm"               }, "name": "Engine speed"},
     {"id": "TOYOTA_VEHICLE_SPEED_7E0",           "path": "Movement", "fmt": {"bix": 88,  "len": 8,  "max": 255,                                                        "unit": "kilometersPerHour" }, "name": "Vehicle speed",                     "suggestedMetric": "speed"},
     {"id": "TOYOTA_ENGINE_RUN_TIME_V2",          "path": "Engine",   "fmt": {"bix": 88,  "len": 16, "max": 65535,                                                      "unit": "seconds"           }, "name": "Engine run time"},
@@ -2104,7 +2105,7 @@
     {"id": "TOYOTA_KNOCK_CORRECT_LEARN",    "path": "Engine", "fmt": {"bix": 16,  "len": 16, "max": 1023,   "min": -1024,              "div": 32,    "add": -1024, "unit": "degrees"    }, "name": "Knock correct learn value"},
     {"id": "TOYOTA_KNOCK_ADJUST_7E0",       "path": "Engine", "fmt": {"bix": 32,  "len": 16, "max": 1024,   "min": -1024, "mul": 2048, "div": 65535, "add": -1024, "unit": "degrees"    }, "name": "Knock adjust"},
     {"id": "TOYOTA_KNOCK_FEEDBACK_7E0",     "path": "Engine", "fmt": {"bix": 48,  "len": 16, "max": 1024,   "min": -1024, "mul": 2048, "div": 65535, "add": -1024, "unit": "degrees"    }, "name": "Knock feedback"},
-    {"id": "TOYOTA_EVAP_PURGE_FLOW",        "path": "Engine", "fmt": {"bix": 64,  "len": 16, "max": 399.99,               "mul": 25,   "div": 4096,                "unit": "percent"    }, "name": "Evaporative purge flow"},
+    {"id": "TOYOTA_EVAP_PURGE_FLOW",        "path": "Engine", "fmt": {"bix": 64,  "len": 16, "max": 65535,                                                         "unit": "scalar"     }, "name": "Evaporative purge flow, raw count"},
     {"id": "TOYOTA_IG_OFF_ELAPSED_TIME",    "path": "Engine", "fmt": {"bix": 80,  "len": 16, "max": 655350,               "mul": 10,                               "unit": "minutes"    }, "name": "IG OFF elapsed time"},
     {"id": "TOYOTA_DIST_BATT_CABLE",        "path": "Engine", "fmt": {"bix": 96,  "len": 16, "max": 65535,                                                         "unit": "kilometers" }, "name": "Dist battery cable disconnect"},
     {"id": "TOYOTA_IMMOBILIZER_ON",         "path": "Engine", "fmt": {"bix": 120, "len": 1,  "max": 1,                                                             "unit": "scalar"     }, "name": "Immobilizer communication on"},
@@ -2129,11 +2130,15 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "3A"}, "freq": 1,
   "signals": [
-    {"id": "TOYOTA_VALVEMATIC_TGT_ANG", "path": "Engine", "fmt": {           "len": 16, "max": 639.9, "mul": 5,  "div": 512,   "unit": "degrees" }, "name": "Valvematic, target angle"},
-    {"id": "TOYOTA_PURGE_CUT_VSV_DUTY", "path": "Engine", "fmt": {"bix": 16, "len": 16, "max": 399.9, "mul": 25, "div": 4096,  "unit": "percent" }, "name": "Purge cut vacuum switching valve duty"},
-    {"id": "TOYOTA_F_HEATER_DUTY_B1S1", "path": "Engine", "fmt": {"bix": 32, "len": 16, "max": 399.9, "mul": 25, "div": 4096,  "unit": "percent" }, "name": "A/F heater duty bank 1 sensor 1"},
-    {"id": "TOYOTA_O2_HEATER_CURR_VAL", "path": "Engine", "fmt": {"bix": 48, "len": 16, "max": 4.999,            "div": 13107, "unit": "amps"    }, "name": "O2 heater current val bank 1 sensor 2"},
-    {"id": "TOYOTA_O2_HEATER_B1S2",     "path": "Engine", "fmt": {"bix": 68, "len": 1,  "max": 1,                              "unit": "scalar"  }, "name": "O2 heater b1s2_active"}
+    {"id": "TOYOTA_VALVEMATIC_TGT_ANG",      "path": "Engine", "fmt": {           "len": 16, "max": 639.9, "mul": 5,  "div": 512,   "unit": "degrees" }, "name": "Valvematic, target angle"},
+    {"id": "TOYOTA_PURGE_CUT_VSV_DUTY",      "path": "Engine", "fmt": {"bix": 16, "len": 16, "max": 399.9, "mul": 25, "div": 4096,  "unit": "percent" }, "name": "Purge cut vacuum switching valve duty"},
+    {"id": "TOYOTA_PURGE_CUT_VSV_DUTY_XU40", "path": "Engine", "fmt": {"bix": 24, "len": 16, "max": 399.9, "mul": 25, "div": 4096,  "unit": "percent" }, "name": "Purge cut vacuum switching valve duty, 2013 and earlier"},
+    {"id": "TOYOTA_F_HEATER_DUTY_B1S1",      "path": "Engine", "fmt": {"bix": 32, "len": 16, "max": 399.9, "mul": 25, "div": 4096,  "unit": "percent" }, "name": "A/F heater duty bank 1 sensor 1"},
+    {"id": "TOYOTA_F_HEATER_DUTY_B1S1_XU40", "path": "Engine", "fmt": {"bix": 40, "len": 16, "max": 399.9, "mul": 25, "div": 4096,  "unit": "percent" }, "name": "A/F heater duty bank 1 sensor 1, 2013 and earlier"},
+    {"id": "TOYOTA_O2_HEATER_CURR_VAL",      "path": "Engine", "fmt": {"bix": 48, "len": 16, "max": 4.999,            "div": 13107, "unit": "amps"    }, "name": "O2 heater current val bank 1 sensor 2"},
+    {"id": "TOYOTA_O2_HEATER_CURR_VAL_XU40", "path": "Engine", "fmt": {"bix": 56, "len": 16, "max": 4.999,            "div": 13107, "unit": "amps"    }, "name": "O2 heater current val bank 1 sensor 2, 2013 and earlier"},
+    {"id": "TOYOTA_O2_HEATER_B1S2",          "path": "Engine", "fmt": {"bix": 68, "len": 1,  "max": 1,                              "unit": "scalar"  }, "name": "O2 heater b1s2_active"},
+    {"id": "TOYOTA_O2_HEATER_B1S2_XU40",     "path": "Engine", "fmt": {"bix": 76, "len": 1,  "max": 1,                              "unit": "scalar"  }, "name": "O2 heater b1s2_active, 2013 and earlier"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "3C"}, "freq": 1,
   "signals": [
@@ -2179,9 +2184,10 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "44"}, "freq": 1,
   "signals": [
-    {"id": "TOYOTA_VARIABLE_VLV_TIM_AIM_1", "path": "Engine", "fmt": {           "len": 16, "max": 399, "mul": 1333,         "div": 218450, "unit": "percent" }, "name": "Variable valve timing aim angle 1"},
-    {"id": "TOYOTA_VARIABLE_VLV_TIM_OIL_1", "path": "Engine", "fmt": {"bix": 16, "len": 16, "max": 399, "mul": 0.0061020829,                "unit": "percent" }, "name": "Variable valve timing oil control valve duty 1"},
-    {"id": "TOYOTA_VARIABLE_VLV_TIM_1",     "path": "Engine", "fmt": {"bix": 32, "len": 16, "max": 639, "mul": 0.0097642481,                "unit": "degrees" }, "name": "Variable valve timing change angle 1"}
+    {"id": "TOYOTA_VARIABLE_VLV_TIM_AIM_1",     "path": "Engine", "fmt": {           "len": 16, "max": 399,   "mul": 1333,         "div": 218450, "unit": "percent" }, "name": "Variable valve timing aim angle 1"},
+    {"id": "TOYOTA_VARIABLE_VLV_TIM_AIM_1_RAW", "path": "Engine", "fmt": {           "len": 16, "max": 65535,                                     "unit": "scalar"  }, "name": "Variable valve timing aim angle 1, raw count"},
+    {"id": "TOYOTA_VARIABLE_VLV_TIM_OIL_1",     "path": "Engine", "fmt": {"bix": 16, "len": 16, "max": 399,   "mul": 0.0061020829,                "unit": "percent" }, "name": "Variable valve timing oil control valve duty 1"},
+    {"id": "TOYOTA_VARIABLE_VLV_TIM_1",         "path": "Engine", "fmt": {"bix": 32, "len": 16, "max": 639,   "mul": 0.0097642481,                "unit": "degrees" }, "name": "Variable valve timing change angle 1"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "45"}, "freq": 1,
   "signals": [
