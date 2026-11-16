@@ -1454,10 +1454,11 @@
   ]},
 { "hdr": "7C0", "rax": "7C8", "dbg": true, "cmd": {"21": "12"}, "freq": 1,
   "signals": [
-    {"id": "TOYOTA_TAIL_CANCEL_LIGHT",       "path": "Lights", "fmt": {"bix": 2,  "len": 1, "max": 1, "unit": "offon" }, "name": "Tail cancel SW"},
-    {"id": "TOYOTA_P_SEATBELT_BUCKLE_LIGHT", "path": "Lights", "fmt": {"bix": 8,  "len": 1, "max": 1, "unit": "offon" }, "name": "P-seatbelt buckle SW"},
-    {"id": "TOYOTA_CHECK_ENGINE_LIGHT",      "path": "Lights", "fmt": {"bix": 15, "len": 1, "max": 1, "unit": "offon" }, "name": "Check engine SW"},
-    {"id": "TOYOTA_EOP_LIGHT",               "path": "Lights", "fmt": {"bix": 35, "len": 1, "max": 1, "unit": "offon" }, "name": "Oil pressure switch"}
+    {"id": "TOYOTA_TAIL_CANCEL_LIGHT",       "path": "Lights",  "fmt": {"bix": 2,  "len": 1, "max": 1, "unit": "offon" }, "name": "Tail cancel SW"},
+    {"id": "TOYOTA_P_SEATBELT_BUCKLE_LIGHT", "path": "Lights",  "fmt": {"bix": 8,  "len": 1, "max": 1, "unit": "offon" }, "name": "P-seatbelt buckle SW"},
+    {"id": "TOYOTA_CHECK_ENGINE_LIGHT",      "path": "Lights",  "fmt": {"bix": 15, "len": 1, "max": 1, "unit": "offon" }, "name": "Check engine SW"},
+    {"id": "TOYOTA_CHECK_ENGINE",            "path": "Control", "fmt": {"bix": 15, "len": 1, "max": 1, "unit": "offon" }, "name": "Check engine",         "suggestedMetric": "checkEngineLightOn"},
+    {"id": "TOYOTA_EOP_LIGHT",               "path": "Lights",  "fmt": {"bix": 35, "len": 1, "max": 1, "unit": "offon" }, "name": "Oil pressure switch"}
   ]},
 { "hdr": "7C0", "rax": "7C8", "dbg": true, "cmd": {"21": "13"}, "freq": 5,
   "signals": [
@@ -1867,8 +1868,11 @@
     {"id": "TOYOTA_MAF_V3",                      "path": "Engine",   "fmt": {"bix": 24,  "len": 16, "max": 655.35,                                                     "unit": "gramsPerSecond"    }, "name": "Mass air flow",                     "suggestedMetric": "massAirFlow"},
     {"id": "TOYOTA_IAT",                         "path": "Engine",   "fmt": {"bix": 40,  "len": 8,  "max": 215,      "min": -40,                           "add": -40, "unit": "celsius"           }, "name": "Intake air temperature"},
     {"id": "TOYOTA_MAP_7E0",                     "path": "Engine",   "fmt": {"bix": 40,  "len": 8,  "max": 255,                                                        "unit": "kilopascal"        }, "name": "Manifold absolute pressure"},
+    {"id": "TOYOTA_MAP_7E0_V2",                  "path": "Engine",   "fmt": {"bix": 40,  "len": 8,  "max": 255,                                                        "unit": "kilopascal"        }, "name": "Manifold absolute pressure",        "suggestedMetric": "absoluteBoostPressure"},
     {"id": "TOYOTA_BARO",                        "path": "Engine",   "fmt": {"bix": 48,  "len": 8,  "max": 255,                                                        "unit": "kilopascal"        }, "name": "Barometric pressure"},
     {"id": "TOYOTA_INTAKE_AIR_7E0",              "path": "Engine",   "fmt": {"bix": 48,  "len": 8,  "max": 215,      "min": -40,                           "add": -40, "unit": "celsius"           }, "name": "Intake air temperature"},
+    {"id": "TOYOTA_ATMOSPHERE_PRESSURE_V2",      "path": "Engine",   "fmt": {"bix": 48,  "len": 8,  "max": 255,                                                        "unit": "kilopascal"        }, "name": "Atmospheric pressure",              "suggestedMetric": "barometricPressure"},
+    {"id": "TOYOTA_INTAKE_AIR_7E0_V3",           "path": "Engine",   "fmt": {"bix": 48,  "len": 8,  "max": 215,      "min": -40,                           "add": -40, "unit": "celsius"           }, "name": "Intake air temperature",            "suggestedMetric": "intakeAirTemperature"},
     {"id": "TOYOTA_ECT_7E0",                     "path": "Engine",   "fmt": {"bix": 56,  "len": 8,  "max": 215,      "min": -40,                           "add": -40, "unit": "celsius"           }, "name": "Engine coolant temperature",        "suggestedMetric": "engineCoolantTemperature"},
     {"id": "TOYOTA_ATMOSPHERE_PRESSURE",         "path": "Engine",   "fmt": {"bix": 56,  "len": 8,  "max": 255,                                                        "unit": "kilopascal"        }, "name": "Atmospheric pressure"},
     {"id": "TOYOTA_COOLANT_TEMP",                "path": "Engine",   "fmt": {"bix": 56,  "len": 8,  "max": 215,      "min": -40,                           "add": -40, "unit": "celsius"           }, "name": "Coolant temp"},
@@ -2045,7 +2049,7 @@
     {"id": "TOYOTA_CC_S",                        "path": "Cruise control", "fmt": {"bix": 8,  "len": 8,  "max": 255,                                                       "unit": "kilometersPerHour" }, "name": "Cruise control speed"},
     {"id": "TOYOTA_CC_DRIVING_FORCE",            "path": "Cruise control", "fmt": {"bix": 16, "len": 8,  "max": 50.8,  "min": -51.2, "mul": 102, "div": 255, "add": -51.2, "unit": "scalar"            }, "name": "Requested driving force"},
     {"id": "TOYOTA_CC_ON",                       "path": "Cruise control", "fmt": {"bix": 24, "len": 1,  "max": 1,                                                         "unit": "offon"             }, "name": "Cruise control, on"},
-    {"id": "TOYOTA_CC_CC_ON",                    "path": "Cruise control", "fmt": {"bix": 25, "len": 1,  "max": 1,                                                         "unit": "noyes"             }, "name": "Cruise control, activated?"},
+    {"id": "TOYOTA_CC_CC_ON",                    "path": "Cruise control", "fmt": {"bix": 25, "len": 1,  "max": 1,                                                         "unit": "noyes"             }, "name": "Cruise control, activated?",         "suggestedMetric": "cruiseActive"},
     {"id": "TOYOTA_CC_CCS_INDICATOR_M_CPU_ON",   "path": "Cruise control", "fmt": {"bix": 26, "len": 1,  "max": 1,                                                         "unit": "offon"             }, "name": "Cruise control indicator"},
     {"id": "TOYOTA_CC_CCS_READY_M_CPU_ON",       "path": "Cruise control", "fmt": {"bix": 28, "len": 1,  "max": 1,                                                         "unit": "noyes"             }, "name": "Cruise control ready?"},
     {"id": "TOYOTA_CC_MAIN_SW_M_CPU_ON",         "path": "Cruise control", "fmt": {"bix": 30, "len": 1,  "max": 1,                                                         "unit": "offon"             }, "name": "Cruise control, main switch"},
