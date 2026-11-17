@@ -8,8 +8,8 @@
   "commands": [
 { "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "0103"}, "freq": 30,
   "signals": [
-    {"id": "TOYOTA_ENG_ODO",     "path": "Trips", "fmt": {"bix": 8, "len": 24, "max": 16777215, "unit": "kilometers" }, "name": "Odometer",                        "suggestedMetric": "odometer"},
     {"id": "TOYOTA_ENG_ODO_RAW", "path": "Trips", "fmt": {"bix": 8, "len": 24, "max": 16777215, "unit": "scalar"     }, "name": "Odometer, in the cluster's unit"},
+    {"id": "TOYOTA_ENG_ODO",     "path": "Trips", "fmt": {"bix": 8, "len": 24, "max": 16777215, "unit": "kilometers" }, "name": "Odometer",                        "suggestedMetric": "odometer"},
     {"id": "TOYOTA_ENG_ODO_UNIT", "path": "Trips", "name": "Odometer unit", "fmt": {"len": 8, "map": {
           "1": { "description": "Kilometers", "value": "KM" },
           "2": { "description": "Miles",      "value": "MI" }
@@ -110,7 +110,8 @@
   ]},
 { "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "107B"}, "freq": 5,
   "signals": [
-    {"id": "TOYOTA_EOT_700", "path": "Engine", "fmt": {"bix": 192, "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Engine oil temperature", "suggestedMetric": "engineOilTemperature"}
+    {"id": "TOYOTA_EOT_700", "path": "Engine", "fmt": {"bix": 192, "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Intake air temperature", "suggestedMetric": "intakeAirTemperature"},
+    {"id": "TOYOTA_EOT",     "path": "Engine", "fmt": {"bix": 192, "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Engine oil temperature", "suggestedMetric": "engineOilTemperature"}
   ]},
 { "hdr": "700", "rax": "708", "dbg": true, "cmd": {"22": "1084"}, "freq": 1,
   "signals": [
@@ -433,8 +434,8 @@
   ]},
 { "hdr": "701", "rax": "709", "dbg": true, "cmd": {"22": "0103"}, "freq": 30,
   "signals": [
-    {"id": "TOYOTA_ODO_V5",     "path": "Trips", "fmt": {"bix": 8, "len": 24, "max": 16777215, "unit": "kilometers" }, "name": "Odometer",                        "suggestedMetric": "odometer"},
     {"id": "TOYOTA_ODO_V5_RAW", "path": "Trips", "fmt": {"bix": 8, "len": 24, "max": 16777215, "unit": "scalar"     }, "name": "Odometer, in the cluster's unit"},
+    {"id": "TOYOTA_ODO_V5",     "path": "Trips", "fmt": {"bix": 8, "len": 24, "max": 16777215, "unit": "kilometers" }, "name": "Odometer",                        "suggestedMetric": "odometer"},
     {"id": "TOYOTA_ODO_V5_UNIT", "path": "Trips", "name": "Odometer unit", "fmt": {"len": 8, "map": {
           "1": { "description": "Kilometers", "value": "KM" },
           "2": { "description": "Miles",      "value": "MI" }
@@ -637,10 +638,9 @@
   ]},
 { "hdr": "747", "rax": "74F", "fcm1": true, "dbg": true, "cmd": {"22": "0103"}, "freq": 10,
   "signals": [
-    {"id": "TOYOTA_ODO_V6",  "path": "Trips", "fmt": {"bix": 8, "len": 24, "max": 16777215,                      "unit": "kilometers" }, "name": "Odometer",                        "suggestedMetric": "odometer"},
-    {"id": "TOYOTA_ODO_V2",  "path": "Trips", "fmt": {"bix": 8, "len": 24, "max": 16777215, "nullmax": 16777215, "unit": "kilometers" }, "name": "Odometer",                        "suggestedMetric": "odometer"},
-    {"id": "TOYOTA_ODO_RAW", "path": "Trips", "fmt": {"bix": 8, "len": 24, "max": 16777215, "nullmax": 16777215, "unit": "scalar"     }, "name": "Odometer, in the cluster's unit"},
-    {"id": "TOYOTA_ODO_UNIT", "path": "Trips", "name": "Odometer unit", "fmt": {"len": 8, "map": {
+    {"id": "TOYOTA_ODO_V6_RAW", "path": "Trips", "fmt": {"bix": 8, "len": 24, "max": 16777215,                      "unit": "scalar" }, "name": "Odometer, in the cluster's unit"},
+    {"id": "TOYOTA_ODO_RAW",    "path": "Trips", "fmt": {"bix": 8, "len": 24, "max": 16777215, "nullmax": 16777215, "unit": "scalar" }, "name": "Odometer, in the cluster's unit"},
+    {"id": "TOYOTA_ODO_V6_UNIT", "path": "Trips", "name": "Odometer unit", "fmt": {"len": 8, "map": {
           "1": { "description": "Kilometers", "value": "KM" },
           "2": { "description": "Miles",      "value": "MI" }
         }}
@@ -1631,10 +1631,9 @@
   ]},
 { "hdr": "7D2", "rax": "7DA", "fcm1": true, "dbg": true, "cmd": {"22": "0103"}, "freq": 10,
   "signals": [
-    {"id": "TOYOTA_ODO_V2_V2",  "path": "Trips", "fmt": {"bix": 8, "len": 24, "max": 16777215,                      "unit": "kilometers" }, "name": "Odometer",                        "suggestedMetric": "odometer"},
-    {"id": "TOYOTA_ODO_V2",     "path": "Trips", "fmt": {"bix": 8, "len": 24, "max": 16777215, "nullmax": 16777215, "unit": "kilometers" }, "name": "Odometer",                        "suggestedMetric": "odometer"},
-    {"id": "TOYOTA_ODO_V2_RAW", "path": "Trips", "fmt": {"bix": 8, "len": 24, "max": 16777215,                      "unit": "scalar"     }, "name": "Odometer, in the cluster's unit"},
-    {"id": "TOYOTA_ODO_V2_UNIT", "path": "Trips", "name": "Odometer unit", "fmt": {"len": 8, "map": {
+    {"id": "TOYOTA_ODO_V2_V2_RAW", "path": "Trips", "fmt": {"bix": 8, "len": 24, "max": 16777215,                      "unit": "scalar" }, "name": "Odometer, in the cluster's unit"},
+    {"id": "TOYOTA_ODO_V2_RAW",    "path": "Trips", "fmt": {"bix": 8, "len": 24, "max": 16777215, "nullmax": 16777215, "unit": "scalar" }, "name": "Odometer, in the cluster's unit"},
+    {"id": "TOYOTA_ODO_V2_V2_UNIT", "path": "Trips", "name": "Odometer unit", "fmt": {"len": 8, "map": {
           "1": { "description": "Kilometers", "value": "KM" },
           "2": { "description": "Miles",      "value": "MI" }
         }}
@@ -1937,7 +1936,7 @@
     {"id": "TOYOTA_BATTERY_VOLTAGE_V2",          "path": "Battery",  "fmt": {"bix": 200, "len": 16, "max": 65.535,                           "div": 1000,              "unit": "volts"             }, "name": "Battery voltage"},
     {"id": "TOYOTA_BATTERY_VOLTAGE_7E0_V3",      "path": "Battery",  "fmt": {"bix": 208, "len": 16, "max": 65.535,                                                     "unit": "volts"             }, "name": "Battery voltage"},
     {"id": "TOYOTA_BATTERY_VOLTAGE_7E0_V2",      "path": "Battery",  "fmt": {"bix": 208, "len": 16, "max": 65.535,                           "div": 1000,              "unit": "volts"             }, "name": "Battery voltage"},
-    {"id": "TOYOTA_EOT",                         "path": "Engine",   "fmt": {"bix": 224, "len": 8,  "max": 215,                                            "add": -40, "unit": "celsius"           }, "name": "Engine oil temperature",            "suggestedMetric": "engineOilTemperature"}
+    {"id": "TOYOTA_EOT_V2",                      "path": "Engine",   "fmt": {"bix": 224, "len": 8,  "max": 215,                                            "add": -40, "unit": "celsius"           }, "name": "Engine oil temperature",            "suggestedMetric": "engineOilTemperature"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "03"}, "freq": 1,
   "signals": [
@@ -2261,7 +2260,7 @@
     {"id": "TOYOTA_PREV_TRIP_DST",     "path": "Trips",        "fmt": {"bix": 40,  "len": 16, "max": 655.35,                         "div": 100,               "unit": "kilometers"   }, "name": "Previous trip distance"},
     {"id": "TOYOTA_VVTOT",             "path": "Engine",       "fmt": {"bix": 56,  "len": 8,  "max": 215,    "min": -40,                           "add": -40, "unit": "celsius"      }, "name": "Variable valve timing oil temperature"},
     {"id": "TOYOTA_PREV_TRIP_IAT",     "path": "Engine",       "fmt": {"bix": 64,  "len": 8,  "max": 215,    "min": -40,                           "add": -40, "unit": "celsius"      }, "name": "Intake air temperature, previous trip"},
-    {"id": "TOYOTA_EOT_V2",            "path": "Engine",       "fmt": {"bix": 72,  "len": 8,  "max": 215,    "min": -40,                           "add": -40, "unit": "celsius"      }, "name": "Engine oil temperature",                "suggestedMetric": "engineOilTemperature"},
+    {"id": "TOYOTA_EOT_V3",            "path": "Engine",       "fmt": {"bix": 72,  "len": 8,  "max": 215,    "min": -40,                           "add": -40, "unit": "celsius"      }, "name": "Engine oil temperature",                "suggestedMetric": "engineOilTemperature"},
     {"id": "TOYOTA_EOT_V3",            "path": "Engine",       "fmt": {"bix": 72,  "len": 8,  "max": 215,    "min": -40,                           "add": -40, "unit": "celsius"      }, "name": "Engine oil temperature"},
     {"id": "TOYOTA_PREV_TRIP_EOT",     "path": "Engine",       "fmt": {"bix": 80,  "len": 8,  "max": 215,    "min": -40,                           "add": -40, "unit": "celsius"      }, "name": "Engine oil temperature, previous trip"},
     {"id": "TOYOTA_AC_AMB_T",          "path": "Climate",      "fmt": {"bix": 88,  "len": 8,  "max": 215,    "min": -40,                           "add": -40, "unit": "celsius"      }, "name": "Ambient temperature for A/C"},
@@ -2467,7 +2466,7 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "03E8"}, "freq": 3600,
   "signals": [
-    {"id": "TOYOTA_IA_OAR", "fmt": { "len": 16, "max": 1, "div": 16384, "sign": true, "unit": "scalar" }, "name": "Octane adjust ratio"}
+    {"id": "TOYOTA_IA_OAR", "fmt": { "len": 16, "max": 1, "min": -1, "div": 16384, "sign": true, "unit": "scalar" }, "name": "Octane adjust ratio"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "03EC"}, "freq": 0.25,
   "signals": [
@@ -2523,7 +2522,7 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "tmo": "64", "fcm1": true, "dbg": true, "cmd": {"22": "10E5"}, "freq": 30,
   "signals": [
-    {"id": "TOYOTA_ODO_V3", "path": "Trips", "fmt": { "len": 16, "max": 131070, "mul": 2, "nullmax": 131070, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"}
+    {"id": "TOYOTA_ODO_V2", "path": "Trips", "fmt": { "len": 16, "max": 131070, "mul": 2, "nullmax": 131070, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "10E7"}, "freq": 5,
   "signals": [
