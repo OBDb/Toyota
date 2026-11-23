@@ -1,5 +1,6 @@
 { "ecu": [
     { "hdr": "750", "eax": "2A", "type": "tpms" },
+    { "hdr": "7A2",              "type": "engine" },
     { "hdr": "7E0",              "type": "engine" },
     { "hdr": "7E1",              "type": "transmission" },
     { "hdr": "7E2",              "type": "hybridControl" },
